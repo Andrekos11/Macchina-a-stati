@@ -1,0 +1,4267 @@
+[FileInfo]
+CreatedBy=MS
+ModifiedBy=MS
+Description=FD1 stepper motor drive
+CreationTime=09:54AM
+CreationDate=10-20-2023
+ModificationTime=09:54AM
+ModificationDate=10-20-2023
+FileName=FD1G_V9_08.eds
+FileVersion=1
+FileRevision=1
+EDSVersion=8
+
+[DeviceInfo]
+VendorName=MAE Ametek
+VendorNumber=1329
+ProductName=FD1.1GA
+BaudRate_10=1
+BaudRate_20=1
+BaudRate_50=1
+BaudRate_125=1
+BaudRate_250=1
+BaudRate_500=1
+BaudRate_800=1
+BaudRate_1000=1
+SimpleBootUpMaster=0
+SimpleBootUpSlave=1
+Granularity=8
+DynamicChannelsSupported=0
+CompactPDO=23
+GroupMessaging=0
+NrOfRXPDO=4
+NrOfTXPDO=4
+LSS_Supported=0
+
+[DummyUsage]
+Dummy0001=0
+Dummy0002=1
+Dummy0003=1
+Dummy0004=1
+Dummy0005=1
+Dummy0006=1
+Dummy0007=1
+
+[Comments]
+Lines=0
+
+[MandatoryObjects]
+SupportedObjects=3
+1=0x1000
+2=0x1001
+3=0x1018
+
+[1000]
+ParameterName=Device Type
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+DefaultValue=0x40192
+PDOMapping=0
+
+[1001]
+ParameterName=Error Register
+ObjectType=0x7
+DataType=0x0005
+AccessType=ro
+DefaultValue=0
+PDOMapping=1
+
+[1018]
+ParameterName=Identity Object
+ObjectType=0x9
+SubNumber=5
+
+[1018sub0]
+ParameterName=Number of entries
+ObjectType=0x7
+DataType=0x0005
+AccessType=ro
+DefaultValue=4
+PDOMapping=0
+LowLimit=1
+HighLimit=4
+
+[1018sub1]
+ParameterName=Vendor Id
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+DefaultValue=1329
+PDOMapping=0
+
+[1018sub2]
+ParameterName=Product Code
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=0
+
+[1018sub3]
+ParameterName=Revision number
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=0
+
+[1018sub4]
+ParameterName=Serial number
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+DefaultValue=0
+PDOMapping=0
+
+[OptionalObjects]
+SupportedObjects=61
+1=0x1003
+2=0x1005
+3=0x1008
+4=0x1009
+5=0x100A
+6=0x100C
+7=0x100D
+8=0x1010
+9=0x1014
+10=0x1016
+11=0x1017
+12=0x1400
+13=0x1401
+14=0x1402
+15=0x1403
+16=0x1600
+17=0x1601
+18=0x1602
+19=0x1603
+20=0x1800
+21=0x1801
+22=0x1802
+23=0x1803
+24=0x1A00
+25=0x1A01
+26=0x1A02
+27=0x1A03
+28=0x1F50
+29=0x1F52
+30=0x603F
+31=0x6040
+32=0x6041
+33=0x6060
+34=0x6061
+35=0x6062
+36=0x6063
+37=0x6064
+38=0x6065
+39=0x6069
+40=0x606B
+41=0x606C
+42=0x607A
+43=0x607C
+44=0x607D
+45=0x607F
+46=0x6081
+47=0x6083
+48=0x6084
+49=0x6086
+50=0x6098
+51=0x6099
+52=0x609A
+53=0x60C0
+54=0x60C1
+55=0x60C2
+56=0x60C4
+57=0x60F4
+58=0x60FD
+59=0x60FF
+60=0x6402
+61=0x6502
+
+[1003]
+ParameterName=Predefined Error Field
+ObjectType=0x8
+SubNumber=9
+
+[1003sub0]
+ParameterName=Number of Errors
+ObjectType=0x7
+DataType=0x0005
+AccessType=rw
+DefaultValue=0
+PDOMapping=0
+LowLimit=0
+HighLimit=8
+
+[1003sub1]
+ParameterName=Standard Error Field_1
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+DefaultValue=0
+PDOMapping=0
+
+[1003sub2]
+ParameterName=Standard Error Field_2
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+DefaultValue=0
+PDOMapping=0
+
+[1003sub3]
+ParameterName=Standard Error Field_3
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+DefaultValue=0
+PDOMapping=0
+
+[1003sub4]
+ParameterName=Standard Error Field_4
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+DefaultValue=0
+PDOMapping=0
+
+[1003sub5]
+ParameterName=Standard Error Field_5
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+DefaultValue=0
+PDOMapping=0
+
+[1003sub6]
+ParameterName=Standard Error Field_6
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+DefaultValue=0
+PDOMapping=0
+
+[1003sub7]
+ParameterName=Standard Error Field_7
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+DefaultValue=0
+PDOMapping=0
+
+[1003sub8]
+ParameterName=Standard Error Field_8
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+DefaultValue=0
+PDOMapping=0
+
+[1005]
+ParameterName=COB ID SYNC
+ObjectType=0x7
+DataType=0x0007
+AccessType=rw
+DefaultValue=0x80
+PDOMapping=0
+
+[1008]
+ParameterName=Manufacturer Device Name
+ObjectType=0x7
+DataType=0x0009
+AccessType=const
+DefaultValue=FD1
+PDOMapping=0
+
+[1009]
+ParameterName=Manufacturer Hardware Version
+ObjectType=0x7
+DataType=0x0009
+AccessType=const
+DefaultValue=V1.2
+PDOMapping=0
+
+[100A]
+ParameterName=Manufacturer Software Version
+ObjectType=0x7
+DataType=0x0009
+AccessType=const
+DefaultValue=V9.08
+PDOMapping=0
+
+[100C]
+ParameterName=Guard Time
+ObjectType=0x7
+DataType=0x0006
+AccessType=rw
+DefaultValue=0
+PDOMapping=0
+
+[100D]
+ParameterName=Life Time Factor
+ObjectType=0x7
+DataType=0x0005
+AccessType=rw
+DefaultValue=0x00
+PDOMapping=0
+
+[1010]
+ParameterName=Store Parameter Field
+ObjectType=0x8
+SubNumber=2
+
+[1010sub0]
+ParameterName=Number of entries
+ObjectType=0x7
+DataType=0x0005
+AccessType=ro
+DefaultValue=1
+PDOMapping=0
+LowLimit=0x0
+HighLimit=0x7F
+
+[1010sub1]
+ParameterName=Save all Parameters
+ObjectType=0x7
+DataType=0x0007
+AccessType=rw
+PDOMapping=0
+
+[1014]
+ParameterName=COB ID EMCY
+ObjectType=0x7
+DataType=0x0007
+AccessType=rw
+DefaultValue=$NODEID+0x80
+PDOMapping=0
+LowLimit=0x00000001
+HighLimit=0xFFFFFFFF
+
+[1016]
+ParameterName=Consumer Heartbeat Time
+ObjectType=0x8
+SubNumber=2
+
+[1016sub0]
+ParameterName=Number of entries
+ObjectType=0x7
+DataType=0x0005
+AccessType=ro
+DefaultValue=1
+PDOMapping=0
+LowLimit=0x1
+
+[1016sub1]
+ParameterName=Consumer Heartbeat Time
+ObjectType=0x7
+DataType=0x0007
+AccessType=rw
+DefaultValue=0
+PDOMapping=0
+
+[1017]
+ParameterName=Producer Heartbeat Time
+ObjectType=0x7
+DataType=0x0006
+AccessType=rw
+DefaultValue=0
+PDOMapping=0
+
+[1400]
+ParameterName=Receive PDO Communication Parameter 0
+ObjectType=0x9
+SubNumber=3
+
+[1400sub0]
+ParameterName=Number of entries
+ObjectType=0x7
+DataType=0x0005
+AccessType=ro
+DefaultValue=2
+PDOMapping=0
+LowLimit=0x02
+HighLimit=0x02
+
+[1400sub1]
+ParameterName=COB ID
+ObjectType=0x7
+DataType=0x0007
+AccessType=rw
+DefaultValue=$NODEID+0x200
+PDOMapping=0
+
+[1400sub2]
+ParameterName=Transmission Type
+ObjectType=0x7
+DataType=0x0005
+AccessType=rw
+DefaultValue=0
+PDOMapping=0
+
+[1401]
+ParameterName=Receive PDO Communication Parameter 1
+ObjectType=0x9
+SubNumber=3
+
+[1401sub0]
+ParameterName=Number of entries
+ObjectType=0x7
+DataType=0x0005
+AccessType=ro
+DefaultValue=2
+PDOMapping=0
+LowLimit=0x02
+HighLimit=0x05
+
+[1401sub1]
+ParameterName=COB ID
+ObjectType=0x7
+DataType=0x0007
+AccessType=rw
+DefaultValue=$NODEID+0x300
+PDOMapping=0
+
+[1401sub2]
+ParameterName=Transmission Type
+ObjectType=0x7
+DataType=0x0005
+AccessType=rw
+DefaultValue=0
+PDOMapping=0
+
+[1402]
+ParameterName=Receive PDO Communication Parameter 2
+ObjectType=0x9
+SubNumber=3
+
+[1402sub0]
+ParameterName=Number of entries
+ObjectType=0x7
+DataType=0x0005
+AccessType=ro
+DefaultValue=2
+PDOMapping=0
+LowLimit=0x02
+HighLimit=0x05
+
+[1402sub1]
+ParameterName=COB ID
+ObjectType=0x7
+DataType=0x0007
+AccessType=rw
+DefaultValue=$NODEID+0x400
+PDOMapping=0
+
+[1402sub2]
+ParameterName=Transmission Type
+ObjectType=0x7
+DataType=0x0005
+AccessType=rw
+DefaultValue=0
+PDOMapping=0
+
+[1403]
+ParameterName=Receive PDO Communication Parameter 3
+ObjectType=0x9
+SubNumber=3
+
+[1403sub0]
+ParameterName=Number of entries
+ObjectType=0x7
+DataType=0x0005
+AccessType=ro
+DefaultValue=2
+PDOMapping=0
+LowLimit=0x02
+HighLimit=0x05
+
+[1403sub1]
+ParameterName=COB ID
+ObjectType=0x7
+DataType=0x0007
+AccessType=rw
+DefaultValue=$NODEID+0x500
+PDOMapping=0
+
+[1403sub2]
+ParameterName=Transmission Type
+ObjectType=0x7
+DataType=0x0005
+AccessType=rw
+DefaultValue=0
+PDOMapping=0
+
+[1600]
+ParameterName=Receive PDO Mapping Parameter 0
+ObjectType=0x9
+SubNumber=9
+
+[1600sub0]
+ParameterName=Number of entries
+ObjectType=0x7
+DataType=0x0005
+AccessType=rw
+DefaultValue=1
+PDOMapping=0
+LowLimit=0
+HighLimit=8
+
+[1600sub1]
+ParameterName=PDO Mapping Entry
+ObjectType=0x7
+DataType=0x0007
+AccessType=rw
+DefaultValue=0x60400010
+PDOMapping=0
+
+[1600sub2]
+ParameterName=PDO Mapping Entry_2
+ObjectType=0x7
+DataType=0x0007
+AccessType=rw
+PDOMapping=0
+
+[1600sub3]
+ParameterName=PDO Mapping Entry_3
+ObjectType=0x7
+DataType=0x0007
+AccessType=rw
+PDOMapping=0
+
+[1600sub4]
+ParameterName=PDO Mapping Entry_4
+ObjectType=0x7
+DataType=0x0007
+AccessType=rw
+PDOMapping=0
+
+[1600sub5]
+ParameterName=PDO Mapping Entry_5
+ObjectType=0x7
+DataType=0x0007
+AccessType=rw
+PDOMapping=0
+
+[1600sub6]
+ParameterName=PDO Mapping Entry_6
+ObjectType=0x7
+DataType=0x0007
+AccessType=rw
+PDOMapping=0
+
+[1600sub7]
+ParameterName=PDO Mapping Entry_7
+ObjectType=0x7
+DataType=0x0007
+AccessType=rw
+PDOMapping=0
+
+[1600sub8]
+ParameterName=PDO Mapping Entry_8
+ObjectType=0x7
+DataType=0x0007
+AccessType=rw
+PDOMapping=0
+
+[1601]
+ParameterName=Receive PDO Mapping Parameter 1
+ObjectType=0x9
+SubNumber=9
+
+[1601sub0]
+ParameterName=Number of entries
+ObjectType=0x7
+DataType=0x0005
+AccessType=rw
+DefaultValue=2
+PDOMapping=0
+LowLimit=0
+HighLimit=8
+
+[1601sub1]
+ParameterName=PDO Mapping Entry
+ObjectType=0x7
+DataType=0x0007
+AccessType=rw
+DefaultValue=0x60600008
+PDOMapping=0
+
+[1601sub2]
+ParameterName=PDO Mapping Entry_2
+ObjectType=0x7
+DataType=0x0007
+AccessType=rw
+DefaultValue=0x60400010
+PDOMapping=0
+
+[1601sub3]
+ParameterName=PDO Mapping Entry_3
+ObjectType=0x7
+DataType=0x0007
+AccessType=rw
+PDOMapping=0
+
+[1601sub4]
+ParameterName=PDO Mapping Entry_4
+ObjectType=0x7
+DataType=0x0007
+AccessType=rw
+PDOMapping=0
+
+[1601sub5]
+ParameterName=PDO Mapping Entry_5
+ObjectType=0x7
+DataType=0x0007
+AccessType=rw
+PDOMapping=0
+
+[1601sub6]
+ParameterName=PDO Mapping Entry_6
+ObjectType=0x7
+DataType=0x0007
+AccessType=rw
+PDOMapping=0
+
+[1601sub7]
+ParameterName=PDO Mapping Entry_7
+ObjectType=0x7
+DataType=0x0007
+AccessType=rw
+PDOMapping=0
+
+[1601sub8]
+ParameterName=PDO Mapping Entry_8
+ObjectType=0x7
+DataType=0x0007
+AccessType=rw
+PDOMapping=0
+
+[1602]
+ParameterName=Receive PDO Mapping Parameter 2
+ObjectType=0x9
+SubNumber=9
+
+[1602sub0]
+ParameterName=Number of entries
+ObjectType=0x7
+DataType=0x0005
+AccessType=rw
+DefaultValue=2
+PDOMapping=0
+LowLimit=0
+HighLimit=8
+
+[1602sub1]
+ParameterName=PDO Mapping Entry
+ObjectType=0x7
+DataType=0x0007
+AccessType=rw
+DefaultValue=0x607A0020
+PDOMapping=0
+
+[1602sub2]
+ParameterName=PDO Mapping Entry_2
+ObjectType=0x7
+DataType=0x0007
+AccessType=rw
+DefaultValue=0x60400010
+PDOMapping=0
+
+[1602sub3]
+ParameterName=PDO Mapping Entry_3
+ObjectType=0x7
+DataType=0x0007
+AccessType=rw
+PDOMapping=0
+
+[1602sub4]
+ParameterName=PDO Mapping Entry_4
+ObjectType=0x7
+DataType=0x0007
+AccessType=rw
+PDOMapping=0
+
+[1602sub5]
+ParameterName=PDO Mapping Entry_5
+ObjectType=0x7
+DataType=0x0007
+AccessType=rw
+PDOMapping=0
+
+[1602sub6]
+ParameterName=PDO Mapping Entry_6
+ObjectType=0x7
+DataType=0x0007
+AccessType=rw
+PDOMapping=0
+
+[1602sub7]
+ParameterName=PDO Mapping Entry_7
+ObjectType=0x7
+DataType=0x0007
+AccessType=rw
+PDOMapping=0
+
+[1602sub8]
+ParameterName=PDO Mapping Entry_8
+ObjectType=0x7
+DataType=0x0007
+AccessType=rw
+PDOMapping=0
+
+[1603]
+ParameterName=Receive PDO Mapping Parameter 3
+ObjectType=0x9
+SubNumber=9
+
+[1603sub0]
+ParameterName=Number of entries
+ObjectType=0x7
+DataType=0x0005
+AccessType=rw
+DefaultValue=2
+PDOMapping=0
+LowLimit=0
+HighLimit=8
+
+[1603sub1]
+ParameterName=PDO Mapping Entry
+ObjectType=0x7
+DataType=0x0007
+AccessType=rw
+DefaultValue=0x60FF0020
+PDOMapping=0
+
+[1603sub2]
+ParameterName=PDO Mapping Entry_2
+ObjectType=0x7
+DataType=0x0007
+AccessType=rw
+DefaultValue=0x60400010
+PDOMapping=0
+
+[1603sub3]
+ParameterName=PDO Mapping Entry_3
+ObjectType=0x7
+DataType=0x0007
+AccessType=rw
+PDOMapping=0
+
+[1603sub4]
+ParameterName=PDO Mapping Entry_4
+ObjectType=0x7
+DataType=0x0007
+AccessType=rw
+PDOMapping=0
+
+[1603sub5]
+ParameterName=PDO Mapping Entry_5
+ObjectType=0x7
+DataType=0x0007
+AccessType=rw
+PDOMapping=0
+
+[1603sub6]
+ParameterName=PDO Mapping Entry_6
+ObjectType=0x7
+DataType=0x0007
+AccessType=rw
+PDOMapping=0
+
+[1603sub7]
+ParameterName=PDO Mapping Entry_7
+ObjectType=0x7
+DataType=0x0007
+AccessType=rw
+PDOMapping=0
+
+[1603sub8]
+ParameterName=PDO Mapping Entry_8
+ObjectType=0x7
+DataType=0x0007
+AccessType=rw
+PDOMapping=0
+
+[1800]
+ParameterName=Transmit PDO Communication Parameter 0
+ObjectType=0x9
+SubNumber=6
+
+[1800sub0]
+ParameterName=Number of entries
+ObjectType=0x7
+DataType=0x0005
+AccessType=ro
+DefaultValue=5
+PDOMapping=0
+LowLimit=0x02
+HighLimit=0x02
+
+[1800sub1]
+ParameterName=COB ID
+ObjectType=0x7
+DataType=0x0007
+AccessType=rw
+DefaultValue=$NODEID+0x180
+PDOMapping=0
+
+[1800sub2]
+ParameterName=Transmission Type
+ObjectType=0x7
+DataType=0x0005
+AccessType=rw
+DefaultValue=0
+PDOMapping=0
+
+[1800sub3]
+ParameterName=Inhibit Time
+ObjectType=0x7
+DataType=0x0006
+AccessType=rw
+DefaultValue=0x0000
+PDOMapping=0
+
+[1800sub4]
+ParameterName=Compatibility Entry
+ObjectType=0x7
+DataType=0x0005
+AccessType=rw
+PDOMapping=0
+
+[1800sub5]
+ParameterName=Event Timer
+ObjectType=0x7
+DataType=0x0006
+AccessType=rw
+DefaultValue=0
+PDOMapping=0
+
+[1801]
+ParameterName=Transmit PDO Communication Parameter 1
+ObjectType=0x9
+SubNumber=6
+
+[1801sub0]
+ParameterName=Number of entries
+ObjectType=0x7
+DataType=0x0005
+AccessType=ro
+DefaultValue=5
+PDOMapping=0
+LowLimit=0x02
+HighLimit=0x02
+
+[1801sub1]
+ParameterName=COB ID
+ObjectType=0x7
+DataType=0x0007
+AccessType=rw
+DefaultValue=$NODEID+0x280
+PDOMapping=0
+
+[1801sub2]
+ParameterName=Transmission Type
+ObjectType=0x7
+DataType=0x0005
+AccessType=rw
+DefaultValue=0
+PDOMapping=0
+
+[1801sub3]
+ParameterName=Inhibit Time
+ObjectType=0x7
+DataType=0x0006
+AccessType=rw
+DefaultValue=0x0000
+PDOMapping=0
+
+[1801sub4]
+ParameterName=Compatibility Entry
+ObjectType=0x7
+DataType=0x0005
+AccessType=rw
+PDOMapping=0
+
+[1801sub5]
+ParameterName=Event Timer
+ObjectType=0x7
+DataType=0x0006
+AccessType=rw
+DefaultValue=0
+PDOMapping=0
+
+[1802]
+ParameterName=Transmit PDO Communication Parameter 2
+ObjectType=0x9
+SubNumber=6
+
+[1802sub0]
+ParameterName=Number of entries
+ObjectType=0x7
+DataType=0x0005
+AccessType=ro
+DefaultValue=5
+PDOMapping=0
+LowLimit=0x02
+HighLimit=0x02
+
+[1802sub1]
+ParameterName=COB ID
+ObjectType=0x7
+DataType=0x0007
+AccessType=rw
+DefaultValue=$NODEID+0x380
+PDOMapping=0
+
+[1802sub2]
+ParameterName=Transmission Type
+ObjectType=0x7
+DataType=0x0005
+AccessType=rw
+DefaultValue=0
+PDOMapping=0
+
+[1802sub3]
+ParameterName=Inhibit Time
+ObjectType=0x7
+DataType=0x0006
+AccessType=rw
+DefaultValue=0x0000
+PDOMapping=0
+
+[1802sub4]
+ParameterName=Compatibility Entry
+ObjectType=0x7
+DataType=0x0005
+AccessType=rw
+PDOMapping=0
+
+[1802sub5]
+ParameterName=Event Timer
+ObjectType=0x7
+DataType=0x0006
+AccessType=rw
+DefaultValue=0
+PDOMapping=0
+
+[1803]
+ParameterName=Transmit PDO Communication Parameter 3
+ObjectType=0x9
+SubNumber=6
+
+[1803sub0]
+ParameterName=Number of entries
+ObjectType=0x7
+DataType=0x0005
+AccessType=ro
+DefaultValue=5
+PDOMapping=0
+LowLimit=0x02
+HighLimit=0x02
+
+[1803sub1]
+ParameterName=COB ID
+ObjectType=0x7
+DataType=0x0007
+AccessType=rw
+DefaultValue=$NODEID+0x480
+PDOMapping=0
+
+[1803sub2]
+ParameterName=Transmission Type
+ObjectType=0x7
+DataType=0x0005
+AccessType=rw
+DefaultValue=0
+PDOMapping=0
+
+[1803sub3]
+ParameterName=Inhibit Time
+ObjectType=0x7
+DataType=0x0006
+AccessType=rw
+DefaultValue=0x0000
+PDOMapping=0
+
+[1803sub4]
+ParameterName=Compatibility Entry
+ObjectType=0x7
+DataType=0x0005
+AccessType=rw
+PDOMapping=0
+
+[1803sub5]
+ParameterName=Event Timer
+ObjectType=0x7
+DataType=0x0006
+AccessType=rw
+DefaultValue=0
+PDOMapping=0
+
+[1A00]
+ParameterName=Transmit PDO Mapping Parameter 0
+ObjectType=0x9
+SubNumber=9
+
+[1A00sub0]
+ParameterName=Number of entries
+ObjectType=0x7
+DataType=0x0005
+AccessType=rw
+DefaultValue=1
+PDOMapping=0
+LowLimit=0
+HighLimit=8
+
+[1A00sub1]
+ParameterName=PDO Mapping Entry
+ObjectType=0x7
+DataType=0x0007
+AccessType=rw
+DefaultValue=0x60410010
+PDOMapping=0
+
+[1A00sub2]
+ParameterName=PDO Mapping Entry_2
+ObjectType=0x7
+DataType=0x0007
+AccessType=rw
+PDOMapping=0
+
+[1A00sub3]
+ParameterName=PDO Mapping Entry_3
+ObjectType=0x7
+DataType=0x0007
+AccessType=rw
+PDOMapping=0
+
+[1A00sub4]
+ParameterName=PDO Mapping Entry_4
+ObjectType=0x7
+DataType=0x0007
+AccessType=rw
+PDOMapping=0
+
+[1A00sub5]
+ParameterName=PDO Mapping Entry_5
+ObjectType=0x7
+DataType=0x0007
+AccessType=rw
+PDOMapping=0
+
+[1A00sub6]
+ParameterName=PDO Mapping Entry_6
+ObjectType=0x7
+DataType=0x0007
+AccessType=rw
+PDOMapping=0
+
+[1A00sub7]
+ParameterName=PDO Mapping Entry_7
+ObjectType=0x7
+DataType=0x0007
+AccessType=rw
+PDOMapping=0
+
+[1A00sub8]
+ParameterName=PDO Mapping Entry_8
+ObjectType=0x7
+DataType=0x0007
+AccessType=rw
+PDOMapping=0
+
+[1A01]
+ParameterName=Transmit PDO Mapping Parameter 1
+ObjectType=0x9
+SubNumber=9
+
+[1A01sub0]
+ParameterName=Number of entries
+ObjectType=0x7
+DataType=0x0005
+AccessType=rw
+DefaultValue=2
+PDOMapping=0
+LowLimit=0
+HighLimit=8
+
+[1A01sub1]
+ParameterName=PDO Mapping Entry
+ObjectType=0x7
+DataType=0x0007
+AccessType=rw
+DefaultValue=0x60610008
+PDOMapping=0
+
+[1A01sub2]
+ParameterName=PDO Mapping Entry_2
+ObjectType=0x7
+DataType=0x0007
+AccessType=rw
+DefaultValue=0x60410010
+PDOMapping=0
+
+[1A01sub3]
+ParameterName=PDO Mapping Entry_3
+ObjectType=0x7
+DataType=0x0007
+AccessType=rw
+PDOMapping=0
+
+[1A01sub4]
+ParameterName=PDO Mapping Entry_4
+ObjectType=0x7
+DataType=0x0007
+AccessType=rw
+PDOMapping=0
+
+[1A01sub5]
+ParameterName=PDO Mapping Entry_5
+ObjectType=0x7
+DataType=0x0007
+AccessType=rw
+PDOMapping=0
+
+[1A01sub6]
+ParameterName=PDO Mapping Entry_6
+ObjectType=0x7
+DataType=0x0007
+AccessType=rw
+PDOMapping=0
+
+[1A01sub7]
+ParameterName=PDO Mapping Entry_7
+ObjectType=0x7
+DataType=0x0007
+AccessType=rw
+PDOMapping=0
+
+[1A01sub8]
+ParameterName=PDO Mapping Entry_8
+ObjectType=0x7
+DataType=0x0007
+AccessType=rw
+PDOMapping=0
+
+[1A02]
+ParameterName=Transmit PDO Mapping Parameter 2
+ObjectType=0x9
+SubNumber=9
+
+[1A02sub0]
+ParameterName=Number of entries
+ObjectType=0x7
+DataType=0x0005
+AccessType=rw
+DefaultValue=2
+PDOMapping=0
+LowLimit=0
+HighLimit=8
+
+[1A02sub1]
+ParameterName=PDO Mapping Entry
+ObjectType=0x7
+DataType=0x0007
+AccessType=rw
+DefaultValue=0x60630020
+PDOMapping=0
+
+[1A02sub2]
+ParameterName=PDO Mapping Entry_2
+ObjectType=0x7
+DataType=0x0007
+AccessType=rw
+DefaultValue=0x60410010
+PDOMapping=0
+
+[1A02sub3]
+ParameterName=PDO Mapping Entry_3
+ObjectType=0x7
+DataType=0x0007
+AccessType=rw
+PDOMapping=0
+
+[1A02sub4]
+ParameterName=PDO Mapping Entry_4
+ObjectType=0x7
+DataType=0x0007
+AccessType=rw
+PDOMapping=0
+
+[1A02sub5]
+ParameterName=PDO Mapping Entry_5
+ObjectType=0x7
+DataType=0x0007
+AccessType=rw
+PDOMapping=0
+
+[1A02sub6]
+ParameterName=PDO Mapping Entry_6
+ObjectType=0x7
+DataType=0x0007
+AccessType=rw
+PDOMapping=0
+
+[1A02sub7]
+ParameterName=PDO Mapping Entry_7
+ObjectType=0x7
+DataType=0x0007
+AccessType=rw
+PDOMapping=0
+
+[1A02sub8]
+ParameterName=PDO Mapping Entry_8
+ObjectType=0x7
+DataType=0x0007
+AccessType=rw
+PDOMapping=0
+
+[1A03]
+ParameterName=Transmit PDO Mapping Parameter 3
+ObjectType=0x9
+SubNumber=9
+
+[1A03sub0]
+ParameterName=Number of entries
+ObjectType=0x7
+DataType=0x0005
+AccessType=rw
+DefaultValue=2
+PDOMapping=0
+LowLimit=0
+HighLimit=8
+
+[1A03sub1]
+ParameterName=PDO Mapping Entry
+ObjectType=0x7
+DataType=0x0007
+AccessType=rw
+DefaultValue=0x606c0020
+PDOMapping=0
+
+[1A03sub2]
+ParameterName=PDO Mapping Entry_2
+ObjectType=0x7
+DataType=0x0007
+AccessType=rw
+DefaultValue=0x60410010
+PDOMapping=0
+
+[1A03sub3]
+ParameterName=PDO Mapping Entry_3
+ObjectType=0x7
+DataType=0x0007
+AccessType=rw
+PDOMapping=0
+
+[1A03sub4]
+ParameterName=PDO Mapping Entry_4
+ObjectType=0x7
+DataType=0x0007
+AccessType=rw
+PDOMapping=0
+
+[1A03sub5]
+ParameterName=PDO Mapping Entry_5
+ObjectType=0x7
+DataType=0x0007
+AccessType=rw
+PDOMapping=0
+
+[1A03sub6]
+ParameterName=PDO Mapping Entry_6
+ObjectType=0x7
+DataType=0x0007
+AccessType=rw
+PDOMapping=0
+
+[1A03sub7]
+ParameterName=PDO Mapping Entry_7
+ObjectType=0x7
+DataType=0x0007
+AccessType=rw
+PDOMapping=0
+
+[1A03sub8]
+ParameterName=PDO Mapping Entry_8
+ObjectType=0x7
+DataType=0x0007
+AccessType=rw
+PDOMapping=0
+
+[1F50]
+ParameterName=Download program data
+ObjectType=0x8
+SubNumber=3
+
+[1F50sub0]
+ParameterName=NrOfObjects
+ObjectType=0x7
+DataType=0x0005
+AccessType=ro
+DefaultValue=2
+PDOMapping=0
+
+[1F50sub1]
+ParameterName=Program firmware
+ObjectType=0x2
+DataType=0x0005
+AccessType=rw
+PDOMapping=0
+
+[1F50sub2]
+ParameterName=Program parameters
+ObjectType=0x2
+DataType=0x0005
+AccessType=rw
+PDOMapping=0
+
+[1F52]
+ParameterName=Verify application software
+ObjectType=0x8
+SubNumber=3
+
+[1F52sub0]
+ParameterName=NrOfObjects
+ObjectType=0x7
+DataType=0x0005
+AccessType=ro
+DefaultValue=2
+PDOMapping=0
+
+[1F52sub1]
+ParameterName=Application software date
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+DefaultValue=14396
+PDOMapping=0
+
+[1F52sub2]
+ParameterName=Application software time
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+DefaultValue=0
+PDOMapping=0
+
+[603F]
+ParameterName=Error code
+ObjectType=0x7
+DataType=0x0006
+AccessType=ro
+PDOMapping=1
+
+[6040]
+ParameterName=Control word
+ObjectType=0x7
+DataType=0x0006
+AccessType=rww
+PDOMapping=1
+
+[6041]
+ParameterName=Status word
+ObjectType=0x7
+DataType=0x0006
+AccessType=ro
+PDOMapping=1
+
+[6060]
+ParameterName=Modes_of_operation
+ObjectType=0x7
+DataType=0x0002
+AccessType=rww
+DefaultValue=0
+PDOMapping=1
+
+[6061]
+ParameterName=Modes_of_operation_display
+ObjectType=0x7
+DataType=0x0002
+AccessType=ro
+PDOMapping=1
+
+[6062]
+ParameterName=Position_demand_value
+ObjectType=0x7
+DataType=0x0004
+AccessType=ro
+PDOMapping=1
+
+[6063]
+ParameterName=Position_actual_value
+ObjectType=0x7
+DataType=0x0004
+AccessType=ro
+PDOMapping=1
+
+[6064]
+ParameterName=Position_actual_value
+ObjectType=0x7
+DataType=0x0004
+AccessType=ro
+PDOMapping=1
+
+[6065]
+ParameterName=Following_error_window
+ObjectType=0x7
+DataType=0x0007
+AccessType=rww
+PDOMapping=1
+
+[6069]
+ParameterName=Velocity_sensor_actual_value
+ObjectType=0x7
+DataType=0x0004
+AccessType=ro
+PDOMapping=1
+
+[606B]
+ParameterName=Velocity_demand_value
+ObjectType=0x7
+DataType=0x0004
+AccessType=ro
+PDOMapping=1
+
+[606C]
+ParameterName=Velocity_actual_value
+ObjectType=0x7
+DataType=0x0004
+AccessType=ro
+PDOMapping=1
+
+[607A]
+ParameterName=Target_position
+ObjectType=0x7
+DataType=0x0004
+AccessType=rww
+PDOMapping=1
+
+[607C]
+ParameterName=Home_offset
+ObjectType=0x7
+DataType=0x0004
+AccessType=rww
+DefaultValue=0x0
+PDOMapping=1
+
+[607D]
+ParameterName=Software_position_limit
+ObjectType=0x8
+SubNumber=3
+
+[607Dsub0]
+ParameterName=Software_position_limit_number_of_entries
+ObjectType=0x7
+DataType=0x0005
+AccessType=const
+DefaultValue=2
+PDOMapping=0
+
+[607Dsub1]
+ParameterName=Software_position_limit_Min_position_limit
+ObjectType=0x7
+DataType=0x0004
+AccessType=rw
+PDOMapping=0
+
+[607Dsub2]
+ParameterName=Software_position_limit_Max_position_limit
+ObjectType=0x7
+DataType=0x0004
+AccessType=rw
+
+[607F]
+ParameterName=Max_profile_velocity
+ObjectType=0x7
+DataType=0x0007
+AccessType=rww
+DefaultValue=300000
+PDOMapping=1
+HighLimit=300000
+
+[6081]
+ParameterName=Profile_velocity
+ObjectType=0x7
+DataType=0x0007
+AccessType=rww
+PDOMapping=1
+HighLimit=300000
+
+[6083]
+ParameterName=Profile_acceleration
+ObjectType=0x7
+DataType=0x0007
+AccessType=rww
+PDOMapping=1
+LowLimit=1
+HighLimit=20000
+
+[6084]
+ParameterName=Profile_deceleration
+ObjectType=0x7
+DataType=0x0007
+AccessType=rww
+PDOMapping=1
+LowLimit=1
+HighLimit=20000
+
+[6086]
+ParameterName=Motion_profile_type
+ObjectType=0x7
+DataType=0x0003
+AccessType=rww
+DefaultValue=0x0
+PDOMapping=1
+
+[6098]
+ParameterName=Homing_method
+ObjectType=0x7
+DataType=0x0002
+AccessType=rww
+DefaultValue=0x0
+PDOMapping=1
+
+[6099]
+ParameterName=Homing_speeds
+ObjectType=0x8
+SubNumber=3
+
+[6099sub0]
+ParameterName=Homing_speeds_number_of_entries
+ObjectType=0x7
+DataType=0x0005
+AccessType=const
+DefaultValue=2
+PDOMapping=0
+
+[6099sub1]
+ParameterName=Homing_speeds_Speed_during_search_for_switch
+ObjectType=0x7
+DataType=0x0007
+AccessType=rw
+DefaultValue=0x0
+
+[6099sub2]
+ParameterName=Homing_speeds_Speed_during_search_for_zero
+ObjectType=0x7
+DataType=0x0007
+AccessType=rw
+DefaultValue=0x0
+
+[609A]
+ParameterName=Homing_acceleration
+ObjectType=0x7
+DataType=0x0007
+AccessType=rww
+PDOMapping=1
+HighLimit=20000
+
+[60C0]
+ParameterName=Interpolation_sub_mode_select
+ObjectType=0x7
+DataType=0x0003
+AccessType=rw
+DefaultValue=0x0
+PDOMapping=0
+
+[60C1]
+ParameterName=Interpolation_data_record
+ObjectType=0x8
+SubNumber=2
+
+[60C1sub0]
+ParameterName=Interpolation_data_record_number_of_entries
+ObjectType=0x7
+DataType=0x0005
+AccessType=const
+DefaultValue=1
+PDOMapping=0
+
+[60C1sub1]
+ParameterName=Interpolation_data_record_x1
+ObjectType=0x7
+DataType=0x0004
+AccessType=rww
+PDOMapping=1
+
+[60C2]
+ParameterName=Interpolation_time_period
+ObjectType=0x9
+SubNumber=3
+
+[60C2sub0]
+ParameterName=Interpolation_time_period_number_of_entries
+ObjectType=0x7
+DataType=0x0005
+AccessType=const
+DefaultValue=2
+PDOMapping=0
+
+[60C2sub1]
+ParameterName=Interpolation_time_period_Interpolation_time_units
+ObjectType=0x7
+DataType=0x0005
+AccessType=rw
+DefaultValue=0x1
+
+[60C2sub2]
+ParameterName=Interpolation_time_period_Interpolation_time_index
+ObjectType=0x7
+DataType=0x0002
+AccessType=rw
+DefaultValue=-3
+
+[60C4]
+ParameterName=Interpolation_data_configuration
+ObjectType=0x9
+SubNumber=7
+
+[60C4sub0]
+ParameterName=Interpolation_data_configuration_number_of_entries
+ObjectType=0x7
+DataType=0x0005
+AccessType=const
+DefaultValue=6
+PDOMapping=0
+
+[60C4sub1]
+ParameterName=Interpolation_data_configuration_Maximum_buffer_size
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+DefaultValue=32
+PDOMapping=0
+
+[60C4sub2]
+ParameterName=Interpolation_data_configuration_Actual_buffer_size
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+DefaultValue=0x0
+PDOMapping=0
+
+[60C4sub3]
+ParameterName=Interpolation_data_configuration_Buffer_organization
+ObjectType=0x7
+DataType=0x0005
+AccessType=ro
+DefaultValue=0x0
+PDOMapping=0
+
+[60C4sub4]
+ParameterName=Interpolation_data_configuration_Buffer_position
+ObjectType=0x7
+DataType=0x0006
+AccessType=ro
+DefaultValue=0x0
+PDOMapping=0
+
+[60C4sub5]
+ParameterName=Interpolation_data_configuration_Size_of_data_record
+ObjectType=0x7
+DataType=0x0005
+AccessType=wo
+DefaultValue=1
+
+[60C4sub6]
+ParameterName=Value_Description_Buffer_clear
+ObjectType=0x7
+DataType=0x0005
+AccessType=wo
+DefaultValue=0x0
+
+[60F4]
+ParameterName=Following_error_actual_value
+ObjectType=0x7
+DataType=0x0004
+AccessType=ro
+
+[60FD]
+ParameterName=Digital_inputs
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+DefaultValue=0x0
+PDOMapping=1
+
+[60FF]
+ParameterName=Target_velocity
+ObjectType=0x7
+DataType=0x0004
+AccessType=rww
+PDOMapping=1
+HighLimit=300000
+
+[6402]
+ParameterName=Motor_type
+ObjectType=0x7
+DataType=0x0006
+AccessType=ro
+DefaultValue=9
+PDOMapping=0
+
+[6502]
+ParameterName=Supported_drive_modes
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+DefaultValue=101
+PDOMapping=0
+
+[ManufacturerObjects]
+SupportedObjects=3
+1=0x2003
+2=0x2005
+3=0x2006
+
+[2003]
+ParameterName=Delta stop steps
+ObjectType=0x7
+DataType=0x0007
+AccessType=rww
+PDOMapping=1
+LowLimit=1
+
+[2005]
+ParameterName=Modbus registers array 1
+ObjectType=0x8
+SubNumber=255
+
+[2005sub0]
+ParameterName=NrOfObjects
+ObjectType=0x7
+DataType=0x0005
+AccessType=ro
+PDOMapping=0
+
+[2005sub1]
+ParameterName=Modbus registers array 1_sub1
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005sub2]
+ParameterName=Modbus registers array 1_sub2
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005sub3]
+ParameterName=Modbus registers array 1_sub3
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005sub4]
+ParameterName=Modbus registers array 1_sub4
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005sub5]
+ParameterName=Modbus registers array 1_sub5
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005sub6]
+ParameterName=Modbus registers array 1_sub6
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005sub7]
+ParameterName=Modbus registers array 1_sub7
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005sub8]
+ParameterName=Modbus registers array 1_sub8
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005sub9]
+ParameterName=Modbus registers array 1_sub9
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005subA]
+ParameterName=Modbus registers array 1_subA
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005subB]
+ParameterName=Modbus registers array 1_subB
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005subC]
+ParameterName=Modbus registers array 1_subC
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005subD]
+ParameterName=Modbus registers array 1_subD
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005subE]
+ParameterName=Modbus registers array 1_subE
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005subF]
+ParameterName=Modbus registers array 1_subF
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005sub10]
+ParameterName=Modbus registers array 1_sub10
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005sub11]
+ParameterName=Modbus registers array 1_sub11
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005sub12]
+ParameterName=Modbus registers array 1_sub12
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005sub13]
+ParameterName=Modbus registers array 1_sub13
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005sub14]
+ParameterName=Modbus registers array 1_sub14
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005sub15]
+ParameterName=Modbus registers array 1_sub15
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005sub16]
+ParameterName=Modbus registers array 1_sub16
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005sub17]
+ParameterName=Modbus registers array 1_sub17
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005sub18]
+ParameterName=Modbus registers array 1_sub18
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005sub19]
+ParameterName=Modbus registers array 1_sub19
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005sub1A]
+ParameterName=Modbus registers array 1_sub1A
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005sub1B]
+ParameterName=Modbus registers array 1_sub1B
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005sub1C]
+ParameterName=Modbus registers array 1_sub1C
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005sub1D]
+ParameterName=Modbus registers array 1_sub1D
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005sub1E]
+ParameterName=Modbus registers array 1_sub1E
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005sub1F]
+ParameterName=Modbus registers array 1_sub1F
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005sub20]
+ParameterName=Modbus registers array 1_sub20
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005sub21]
+ParameterName=Modbus registers array 1_sub21
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005sub22]
+ParameterName=Modbus registers array 1_sub22
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005sub23]
+ParameterName=Modbus registers array 1_sub23
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005sub24]
+ParameterName=Modbus registers array 1_sub24
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005sub25]
+ParameterName=Modbus registers array 1_sub25
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005sub26]
+ParameterName=Modbus registers array 1_sub26
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005sub27]
+ParameterName=Modbus registers array 1_sub27
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005sub28]
+ParameterName=Modbus registers array 1_sub28
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005sub29]
+ParameterName=Modbus registers array 1_sub29
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005sub2A]
+ParameterName=Modbus registers array 1_sub2A
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005sub2B]
+ParameterName=Modbus registers array 1_sub2B
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005sub2C]
+ParameterName=Modbus registers array 1_sub2C
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005sub2D]
+ParameterName=Modbus registers array 1_sub2D
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005sub2E]
+ParameterName=Modbus registers array 1_sub2E
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005sub2F]
+ParameterName=Modbus registers array 1_sub2F
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005sub30]
+ParameterName=Modbus registers array 1_sub30
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005sub31]
+ParameterName=Modbus registers array 1_sub31
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005sub32]
+ParameterName=Modbus registers array 1_sub32
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005sub33]
+ParameterName=Modbus registers array 1_sub33
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005sub34]
+ParameterName=Modbus registers array 1_sub34
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005sub35]
+ParameterName=Modbus registers array 1_sub35
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005sub36]
+ParameterName=Modbus registers array 1_sub36
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005sub37]
+ParameterName=Modbus registers array 1_sub37
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005sub38]
+ParameterName=Modbus registers array 1_sub38
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005sub39]
+ParameterName=Modbus registers array 1_sub39
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005sub3A]
+ParameterName=Modbus registers array 1_sub3A
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005sub3B]
+ParameterName=Modbus registers array 1_sub3B
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005sub3C]
+ParameterName=Modbus registers array 1_sub3C
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005sub3D]
+ParameterName=Modbus registers array 1_sub3D
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005sub3E]
+ParameterName=Modbus registers array 1_sub3E
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005sub3F]
+ParameterName=Modbus registers array 1_sub3F
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005sub40]
+ParameterName=Modbus registers array 1_sub40
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005sub41]
+ParameterName=Modbus registers array 1_sub41
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005sub42]
+ParameterName=Modbus registers array 1_sub42
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005sub43]
+ParameterName=Modbus registers array 1_sub43
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005sub44]
+ParameterName=Modbus registers array 1_sub44
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005sub45]
+ParameterName=Modbus registers array 1_sub45
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005sub46]
+ParameterName=Modbus registers array 1_sub46
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005sub47]
+ParameterName=Modbus registers array 1_sub47
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005sub48]
+ParameterName=Modbus registers array 1_sub48
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005sub49]
+ParameterName=Modbus registers array 1_sub49
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005sub4A]
+ParameterName=Modbus registers array 1_sub4A
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005sub4B]
+ParameterName=Modbus registers array 1_sub4B
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005sub4C]
+ParameterName=Modbus registers array 1_sub4C
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005sub4D]
+ParameterName=Modbus registers array 1_sub4D
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005sub4E]
+ParameterName=Modbus registers array 1_sub4E
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005sub4F]
+ParameterName=Modbus registers array 1_sub4F
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005sub50]
+ParameterName=Modbus registers array 1_sub50
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005sub51]
+ParameterName=Modbus registers array 1_sub51
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005sub52]
+ParameterName=Modbus registers array 1_sub52
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005sub53]
+ParameterName=Modbus registers array 1_sub53
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005sub54]
+ParameterName=Modbus registers array 1_sub54
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005sub55]
+ParameterName=Modbus registers array 1_sub55
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005sub56]
+ParameterName=Modbus registers array 1_sub56
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005sub57]
+ParameterName=Modbus registers array 1_sub57
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005sub58]
+ParameterName=Modbus registers array 1_sub58
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005sub59]
+ParameterName=Modbus registers array 1_sub59
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005sub5A]
+ParameterName=Modbus registers array 1_sub5A
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005sub5B]
+ParameterName=Modbus registers array 1_sub5B
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005sub5C]
+ParameterName=Modbus registers array 1_sub5C
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005sub5D]
+ParameterName=Modbus registers array 1_sub5D
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005sub5E]
+ParameterName=Modbus registers array 1_sub5E
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005sub5F]
+ParameterName=Modbus registers array 1_sub5F
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005sub60]
+ParameterName=Modbus registers array 1_sub60
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005sub61]
+ParameterName=Modbus registers array 1_sub61
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005sub62]
+ParameterName=Modbus registers array 1_sub62
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005sub63]
+ParameterName=Modbus registers array 1_sub63
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005sub64]
+ParameterName=Modbus registers array 1_sub64
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005sub65]
+ParameterName=Modbus registers array 1_sub65
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005sub66]
+ParameterName=Modbus registers array 1_sub66
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005sub67]
+ParameterName=Modbus registers array 1_sub67
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005sub68]
+ParameterName=Modbus registers array 1_sub68
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005sub69]
+ParameterName=Modbus registers array 1_sub69
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005sub6A]
+ParameterName=Modbus registers array 1_sub6A
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005sub6B]
+ParameterName=Modbus registers array 1_sub6B
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005sub6C]
+ParameterName=Modbus registers array 1_sub6C
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005sub6D]
+ParameterName=Modbus registers array 1_sub6D
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005sub6E]
+ParameterName=Modbus registers array 1_sub6E
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005sub6F]
+ParameterName=Modbus registers array 1_sub6F
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005sub70]
+ParameterName=Modbus registers array 1_sub70
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005sub71]
+ParameterName=Modbus registers array 1_sub71
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005sub72]
+ParameterName=Modbus registers array 1_sub72
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005sub73]
+ParameterName=Modbus registers array 1_sub73
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005sub74]
+ParameterName=Modbus registers array 1_sub74
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005sub75]
+ParameterName=Modbus registers array 1_sub75
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005sub76]
+ParameterName=Modbus registers array 1_sub76
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005sub77]
+ParameterName=Modbus registers array 1_sub77
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005sub78]
+ParameterName=Modbus registers array 1_sub78
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005sub79]
+ParameterName=Modbus registers array 1_sub79
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005sub7A]
+ParameterName=Modbus registers array 1_sub7A
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005sub7B]
+ParameterName=Modbus registers array 1_sub7B
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005sub7C]
+ParameterName=Modbus registers array 1_sub7C
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005sub7D]
+ParameterName=Modbus registers array 1_sub7D
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005sub7E]
+ParameterName=Modbus registers array 1_sub7E
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005sub7F]
+ParameterName=Modbus registers array 1_sub7F
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005sub80]
+ParameterName=Modbus registers array 1_sub80
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005sub81]
+ParameterName=Modbus registers array 1_sub81
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005sub82]
+ParameterName=Modbus registers array 1_sub82
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005sub83]
+ParameterName=Modbus registers array 1_sub83
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005sub84]
+ParameterName=Modbus registers array 1_sub84
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005sub85]
+ParameterName=Modbus registers array 1_sub85
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005sub86]
+ParameterName=Modbus registers array 1_sub86
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005sub87]
+ParameterName=Modbus registers array 1_sub87
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005sub88]
+ParameterName=Modbus registers array 1_sub88
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005sub89]
+ParameterName=Modbus registers array 1_sub89
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005sub8A]
+ParameterName=Modbus registers array 1_sub8A
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005sub8B]
+ParameterName=Modbus registers array 1_sub8B
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005sub8C]
+ParameterName=Modbus registers array 1_sub8C
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005sub8D]
+ParameterName=Modbus registers array 1_sub8D
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005sub8E]
+ParameterName=Modbus registers array 1_sub8E
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005sub8F]
+ParameterName=Modbus registers array 1_sub8F
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005sub90]
+ParameterName=Modbus registers array 1_sub90
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005sub91]
+ParameterName=Modbus registers array 1_sub91
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005sub92]
+ParameterName=Modbus registers array 1_sub92
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005sub93]
+ParameterName=Modbus registers array 1_sub93
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005sub94]
+ParameterName=Modbus registers array 1_sub94
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005sub95]
+ParameterName=Modbus registers array 1_sub95
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005sub96]
+ParameterName=Modbus registers array 1_sub96
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005sub97]
+ParameterName=Modbus registers array 1_sub97
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005sub98]
+ParameterName=Modbus registers array 1_sub98
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005sub99]
+ParameterName=Modbus registers array 1_sub99
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005sub9A]
+ParameterName=Modbus registers array 1_sub9A
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005sub9B]
+ParameterName=Modbus registers array 1_sub9B
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005sub9C]
+ParameterName=Modbus registers array 1_sub9C
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005sub9D]
+ParameterName=Modbus registers array 1_sub9D
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005sub9E]
+ParameterName=Modbus registers array 1_sub9E
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005sub9F]
+ParameterName=Modbus registers array 1_sub9F
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005subA0]
+ParameterName=Modbus registers array 1_subA0
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005subA1]
+ParameterName=Modbus registers array 1_subA1
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005subA2]
+ParameterName=Modbus registers array 1_subA2
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005subA3]
+ParameterName=Modbus registers array 1_subA3
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005subA4]
+ParameterName=Modbus registers array 1_subA4
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005subA5]
+ParameterName=Modbus registers array 1_subA5
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005subA6]
+ParameterName=Modbus registers array 1_subA6
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005subA7]
+ParameterName=Modbus registers array 1_subA7
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005subA8]
+ParameterName=Modbus registers array 1_subA8
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005subA9]
+ParameterName=Modbus registers array 1_subA9
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005subAA]
+ParameterName=Modbus registers array 1_subAA
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005subAB]
+ParameterName=Modbus registers array 1_subAB
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005subAC]
+ParameterName=Modbus registers array 1_subAC
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005subAD]
+ParameterName=Modbus registers array 1_subAD
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005subAE]
+ParameterName=Modbus registers array 1_subAE
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005subAF]
+ParameterName=Modbus registers array 1_subAF
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005subB0]
+ParameterName=Modbus registers array 1_subB0
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005subB1]
+ParameterName=Modbus registers array 1_subB1
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005subB2]
+ParameterName=Modbus registers array 1_subB2
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005subB3]
+ParameterName=Modbus registers array 1_subB3
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005subB4]
+ParameterName=Modbus registers array 1_subB4
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005subB5]
+ParameterName=Modbus registers array 1_subB5
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005subB6]
+ParameterName=Modbus registers array 1_subB6
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005subB7]
+ParameterName=Modbus registers array 1_subB7
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005subB8]
+ParameterName=Modbus registers array 1_subB8
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005subB9]
+ParameterName=Modbus registers array 1_subB9
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005subBA]
+ParameterName=Modbus registers array 1_subBA
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005subBB]
+ParameterName=Modbus registers array 1_subBB
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005subBC]
+ParameterName=Modbus registers array 1_subBC
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005subBD]
+ParameterName=Modbus registers array 1_subBD
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005subBE]
+ParameterName=Modbus registers array 1_subBE
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005subBF]
+ParameterName=Modbus registers array 1_subBF
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005subC0]
+ParameterName=Modbus registers array 1_subC0
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005subC1]
+ParameterName=Modbus registers array 1_subC1
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005subC2]
+ParameterName=Modbus registers array 1_subC2
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005subC3]
+ParameterName=Modbus registers array 1_subC3
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005subC4]
+ParameterName=Modbus registers array 1_subC4
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005subC5]
+ParameterName=Modbus registers array 1_subC5
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005subC6]
+ParameterName=Modbus registers array 1_subC6
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005subC7]
+ParameterName=Modbus registers array 1_subC7
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005subC8]
+ParameterName=Modbus registers array 1_subC8
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005subC9]
+ParameterName=Modbus registers array 1_subC9
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005subCA]
+ParameterName=Modbus registers array 1_subCA
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005subCB]
+ParameterName=Modbus registers array 1_subCB
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005subCC]
+ParameterName=Modbus registers array 1_subCC
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005subCD]
+ParameterName=Modbus registers array 1_subCD
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005subCE]
+ParameterName=Modbus registers array 1_subCE
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005subCF]
+ParameterName=Modbus registers array 1_subCF
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005subD0]
+ParameterName=Modbus registers array 1_subD0
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005subD1]
+ParameterName=Modbus registers array 1_subD1
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005subD2]
+ParameterName=Modbus registers array 1_subD2
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005subD3]
+ParameterName=Modbus registers array 1_subD3
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005subD4]
+ParameterName=Modbus registers array 1_subD4
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005subD5]
+ParameterName=Modbus registers array 1_subD5
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005subD6]
+ParameterName=Modbus registers array 1_subD6
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005subD7]
+ParameterName=Modbus registers array 1_subD7
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005subD8]
+ParameterName=Modbus registers array 1_subD8
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005subD9]
+ParameterName=Modbus registers array 1_subD9
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005subDA]
+ParameterName=Modbus registers array 1_subDA
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005subDB]
+ParameterName=Modbus registers array 1_subDB
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005subDC]
+ParameterName=Modbus registers array 1_subDC
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005subDD]
+ParameterName=Modbus registers array 1_subDD
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005subDE]
+ParameterName=Modbus registers array 1_subDE
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005subDF]
+ParameterName=Modbus registers array 1_subDF
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005subE0]
+ParameterName=Modbus registers array 1_subE0
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005subE1]
+ParameterName=Modbus registers array 1_subE1
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005subE2]
+ParameterName=Modbus registers array 1_subE2
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005subE3]
+ParameterName=Modbus registers array 1_subE3
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005subE4]
+ParameterName=Modbus registers array 1_subE4
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005subE5]
+ParameterName=Modbus registers array 1_subE5
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005subE6]
+ParameterName=Modbus registers array 1_subE6
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005subE7]
+ParameterName=Modbus registers array 1_subE7
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005subE8]
+ParameterName=Modbus registers array 1_subE8
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005subE9]
+ParameterName=Modbus registers array 1_subE9
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005subEA]
+ParameterName=Modbus registers array 1_subEA
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005subEB]
+ParameterName=Modbus registers array 1_subEB
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005subEC]
+ParameterName=Modbus registers array 1_subEC
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005subED]
+ParameterName=Modbus registers array 1_subED
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005subEE]
+ParameterName=Modbus registers array 1_subEE
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005subEF]
+ParameterName=Modbus registers array 1_subEF
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005subF0]
+ParameterName=Modbus registers array 1_subF0
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005subF1]
+ParameterName=Modbus registers array 1_subF1
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005subF2]
+ParameterName=Modbus registers array 1_subF2
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005subF3]
+ParameterName=Modbus registers array 1_subF3
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005subF4]
+ParameterName=Modbus registers array 1_subF4
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005subF5]
+ParameterName=Modbus registers array 1_subF5
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005subF6]
+ParameterName=Modbus registers array 1_subF6
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005subF7]
+ParameterName=Modbus registers array 1_subF7
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005subF8]
+ParameterName=Modbus registers array 1_subF8
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005subF9]
+ParameterName=Modbus registers array 1_subF9
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005subFA]
+ParameterName=Modbus registers array 1_subFA
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005subFB]
+ParameterName=Modbus registers array 1_subFB
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005subFC]
+ParameterName=Modbus registers array 1_subFC
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005subFD]
+ParameterName=Modbus registers array 1_subFD
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2005subFE]
+ParameterName=Modbus registers array 1_subFE
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2006]
+ParameterName=Modbus registers array 2
+ObjectType=0x8
+SubNumber=107
+
+[2006sub0]
+ParameterName=NrOfObjects
+ObjectType=0x7
+DataType=0x0005
+AccessType=ro
+DefaultValue=106
+PDOMapping=0
+
+[2006sub1]
+ParameterName=Modbus registers array 2_sub1
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2006sub2]
+ParameterName=Modbus registers array 2_sub2
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2006sub3]
+ParameterName=Modbus registers array 2_sub3
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2006sub4]
+ParameterName=Modbus registers array 2_sub4
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2006sub5]
+ParameterName=Modbus registers array 2_sub5
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2006sub6]
+ParameterName=Modbus registers array 2_sub6
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2006sub7]
+ParameterName=Modbus registers array 2_sub7
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2006sub8]
+ParameterName=Modbus registers array 2_sub8
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2006sub9]
+ParameterName=Modbus registers array 2_sub9
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2006subA]
+ParameterName=Modbus registers array 2_subA
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2006subB]
+ParameterName=Modbus registers array 2_subB
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2006subC]
+ParameterName=Modbus registers array 2_subC
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2006subD]
+ParameterName=Modbus registers array 2_subD
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2006subE]
+ParameterName=Modbus registers array 2_subE
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2006subF]
+ParameterName=Modbus registers array 2_subF
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2006sub10]
+ParameterName=Modbus registers array 2_sub10
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2006sub11]
+ParameterName=Modbus registers array 2_sub11
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2006sub12]
+ParameterName=Modbus registers array 2_sub12
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2006sub13]
+ParameterName=Modbus registers array 2_sub13
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2006sub14]
+ParameterName=Modbus registers array 2_sub14
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2006sub15]
+ParameterName=Modbus registers array 2_sub15
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2006sub16]
+ParameterName=Modbus registers array 2_sub16
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2006sub17]
+ParameterName=Modbus registers array 2_sub17
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2006sub18]
+ParameterName=Modbus registers array 2_sub18
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2006sub19]
+ParameterName=Modbus registers array 2_sub19
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2006sub1A]
+ParameterName=Modbus registers array 2_sub1A
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2006sub1B]
+ParameterName=Modbus registers array 2_sub1B
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2006sub1C]
+ParameterName=Modbus registers array 2_sub1C
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2006sub1D]
+ParameterName=Modbus registers array 2_sub1D
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2006sub1E]
+ParameterName=Modbus registers array 2_sub1E
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2006sub1F]
+ParameterName=Modbus registers array 2_sub1F
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2006sub20]
+ParameterName=Modbus registers array 2_sub20
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2006sub21]
+ParameterName=Modbus registers array 2_sub21
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2006sub22]
+ParameterName=Modbus registers array 2_sub22
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2006sub23]
+ParameterName=Modbus registers array 2_sub23
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2006sub24]
+ParameterName=Modbus registers array 2_sub24
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2006sub25]
+ParameterName=Modbus registers array 2_sub25
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2006sub26]
+ParameterName=Modbus registers array 2_sub26
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2006sub27]
+ParameterName=Modbus registers array 2_sub27
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2006sub28]
+ParameterName=Modbus registers array 2_sub28
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2006sub29]
+ParameterName=Modbus registers array 2_sub29
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2006sub2A]
+ParameterName=Modbus registers array 2_sub2A
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2006sub2B]
+ParameterName=Modbus registers array 2_sub2B
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2006sub2C]
+ParameterName=Modbus registers array 2_sub2C
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2006sub2D]
+ParameterName=Modbus registers array 2_sub2D
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2006sub2E]
+ParameterName=Modbus registers array 2_sub2E
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2006sub2F]
+ParameterName=Modbus registers array 2_sub2F
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2006sub30]
+ParameterName=Modbus registers array 2_sub30
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2006sub31]
+ParameterName=Modbus registers array 2_sub31
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2006sub32]
+ParameterName=Modbus registers array 2_sub32
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2006sub33]
+ParameterName=Modbus registers array 2_sub33
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2006sub34]
+ParameterName=Modbus registers array 2_sub34
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2006sub35]
+ParameterName=Modbus registers array 2_sub35
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2006sub36]
+ParameterName=Modbus registers array 2_sub36
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2006sub37]
+ParameterName=Modbus registers array 2_sub37
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2006sub38]
+ParameterName=Modbus registers array 2_sub38
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2006sub39]
+ParameterName=Modbus registers array 2_sub39
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2006sub3A]
+ParameterName=Modbus registers array 2_sub3A
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2006sub3B]
+ParameterName=Modbus registers array 2_sub3B
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2006sub3C]
+ParameterName=Modbus registers array 2_sub3C
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2006sub3D]
+ParameterName=Modbus registers array 2_sub3D
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2006sub3E]
+ParameterName=Modbus registers array 2_sub3E
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2006sub3F]
+ParameterName=Modbus registers array 2_sub3F
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2006sub40]
+ParameterName=Modbus registers array 2_sub40
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2006sub41]
+ParameterName=Modbus registers array 2_sub41
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2006sub42]
+ParameterName=Modbus registers array 2_sub42
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2006sub43]
+ParameterName=Modbus registers array 2_sub43
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2006sub44]
+ParameterName=Modbus registers array 2_sub44
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2006sub45]
+ParameterName=Modbus registers array 2_sub45
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2006sub46]
+ParameterName=Modbus registers array 2_sub46
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2006sub47]
+ParameterName=Modbus registers array 2_sub47
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2006sub48]
+ParameterName=Modbus registers array 2_sub48
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2006sub49]
+ParameterName=Modbus registers array 2_sub49
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2006sub4A]
+ParameterName=Modbus registers array 2_sub4A
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2006sub4B]
+ParameterName=Modbus registers array 2_sub4B
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2006sub4C]
+ParameterName=Modbus registers array 2_sub4C
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2006sub4D]
+ParameterName=Modbus registers array 2_sub4D
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2006sub4E]
+ParameterName=Modbus registers array 2_sub4E
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2006sub4F]
+ParameterName=Modbus registers array 2_sub4F
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2006sub50]
+ParameterName=Modbus registers array 2_sub50
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2006sub51]
+ParameterName=Modbus registers array 2_sub51
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2006sub52]
+ParameterName=Modbus registers array 2_sub52
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2006sub53]
+ParameterName=Modbus registers array 2_sub53
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2006sub54]
+ParameterName=Modbus registers array 2_sub54
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2006sub55]
+ParameterName=Modbus registers array 2_sub55
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2006sub56]
+ParameterName=Modbus registers array 2_sub56
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2006sub57]
+ParameterName=Modbus registers array 2_sub57
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2006sub58]
+ParameterName=Modbus registers array 2_sub58
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2006sub59]
+ParameterName=Modbus registers array 2_sub59
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2006sub5A]
+ParameterName=Modbus registers array 2_sub5A
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2006sub5B]
+ParameterName=Modbus registers array 2_sub5B
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2006sub5C]
+ParameterName=Modbus registers array 2_sub5C
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2006sub5D]
+ParameterName=Modbus registers array 2_sub5D
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2006sub5E]
+ParameterName=Modbus registers array 2_sub5E
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2006sub5F]
+ParameterName=Modbus registers array 2_sub5F
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2006sub60]
+ParameterName=Modbus registers array 2_sub60
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2006sub61]
+ParameterName=Modbus registers array 2_sub61
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2006sub62]
+ParameterName=Modbus registers array 2_sub62
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2006sub63]
+ParameterName=Modbus registers array 2_sub63
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2006sub64]
+ParameterName=Modbus registers array 2_sub64
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2006sub65]
+ParameterName=Modbus registers array 2_sub65
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2006sub66]
+ParameterName=Modbus registers array 2_sub66
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2006sub67]
+ParameterName=Modbus registers array 2_sub67
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2006sub68]
+ParameterName=Modbus registers array 2_sub68
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2006sub69]
+ParameterName=Modbus registers array 2_sub69
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2006sub6A]
+ParameterName=Modbus registers array 2_sub6A
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
