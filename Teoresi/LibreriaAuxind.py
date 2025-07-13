@@ -141,97 +141,7 @@ class Auxind:
         self.Nodo.sdo[0x6040].raw = ControlWord["START_HOMING"]  #start homing
         time.sleep(0.2)
 
-
     #5
-    def ProfileVelocity(self, Speed):
-        speed = self.Resolution*Speed/2/M_PI
-        self.Nodo.sdo[0x60FF].raw= Speed
-        
-
-    #6
-    def ProfilePositionRelative(self, Angle):
-        gradi= self.Resolution/360*Angle        #gradi= self.Resolution*Angle/2/M_PI
-        self.Nodo.sdo[0x607A].raw = int(gradi)
-        
-        if self.stato==0:
-            try:
-                self.Nodo.sdo[0x607A].raw = int(gradi)
-            except canopen.sdo.exceptions.SdoCommunicationError:
-                print("SdoCommunicationError")
-            self.stato = 1
-        else:
-            self.Nodo.sdo[0x6040].raw = ControlWord["CLEAR_BIT"] #clear bit 4
-
-        self.Nodo.sdo[0x6040].raw = ControlWord["ENABLE_POS_RELATIVE"]
-        
-
-    #7
-    def ProfilePositionAbsolute(self, Angle):
-        gradi= self.Resolution/360*Angle        #gradi= self.Resolution*Angle/2/M_PI
-        self.Nodo.sdo[0x607A].raw = int(gradi)    
-        
-        if self.stato==0:
-            try:
-                self.Nodo.sdo[0x607A].raw = gradi 
-            except canopen.sdo.exceptions.SdoCommunicationError:
-                print("SdoCommunicationError")
-            self.stato = 1
-        else:
-            self.Nodo.sdo[0x6040].raw = ControlWord["CLEAR_BIT"] #clear bit 4
-    
-        self.Nodo.sdo[0x6040].raw = ControlWord["ENABLE_POS_ABSOLUTE"]
-
-    #8
-    def Shutdown(self):
-        self.Nodo.sdo[0x6040].bits[0]= ControlWord["SHUT_DOWN"]
-
-    #9
-    def Disable_Voltage(self):
-        self.Nodo.sdo[0x6040].bits[0]= ControlWord["DISABLE_VOLTAGE"]
-
-    #10
-    def Switch_On(self):
-        self.Nodo.sdo[0x6040].bits[0]= ControlWord["SWITCH_ON"]
-
-    #11
-    def Disable_Operation(self):
-        self.Nodo.sdo[0x6040].bits[0]= ControlWord["DISABLE_OPERATION"]
-
-    #12
-    def Enable_Operation(self):
-        self.Nodo.sdo[0x6040].bits[0]= ControlWord["ENABLE_OPERATION"]
-
-    #13
-    def Fault_Reset(self):
-        self.Nodo.sdo[0x6040].bits[0]= ControlWord["FAULT_RESET"]
-
-    #14
-    def Quick_Stop(self):
-        self.Nodo.sdo[0x6040].bits[0]= ControlWord["QUICK_STOP"]
-
-    #15
-    def FeedBack_StatusWord(self):
-        StatusWord=self.Nodo.sdo[0x6041].raw
-        return StatusWord
-
-    #16
-    def Set_target_position(self, Angle):
-        gradi= self.Resolution/360*Angle
-        self.Nodo.sdo[0x607A].raw = gradi
-
-    #17
-    def EncoderValue(self):
-        CurrentPosition=self.Nodo.sdo[0x6062].raw
-        currentPosition= CurrentPosition*360/self.Resolution
-        return currentPosition
-
-    #18
-    def VelocityValue(self):
-        CurrentVelocity=self.Nodo.sdo[0x606C].raw
-        CurrentVelocity= CurrentVelocity*360/self.Resolution
-        return CurrentVelocity
-    
-    #19
     def SetEncoderToZero (self):
         self.Nodo.sdo[0x6060].raw = ModesOfOperation["HOMING"]
         self.Nodo.sdo.download(0x6098, 0, b'\x23')        #11 antiorario     12 orario
@@ -251,14 +161,116 @@ class Auxind:
         # Attiva il movimento
         self.Nodo.sdo[0x6040].raw = ControlWord["START_HOMING"]  #start homing
         time.sleep(0.2)
+    #6
+    def ProfileVelocity(self, Speed):
+        speed = self.Resolution*Speed/2/M_PI
+        self.Nodo.sdo[0x60FF].raw= Speed
+        
 
-    def setFunzione(self,Fun, Mod, Vel, Acc, Ang):
+    #7
+    def ProfilePositionRelative(self, Angle):
+        gradi= self.Resolution/360*Angle        #gradi= self.Resolution*Angle/2/M_PI
+        self.Nodo.sdo[0x607A].raw = int(gradi)
+        
+        if self.stato==0:
+            try:
+                self.Nodo.sdo[0x607A].raw = int(gradi)
+            except canopen.sdo.exceptions.SdoCommunicationError:
+                print("SdoCommunicationError")
+            self.stato = 1
+        else:
+            self.Nodo.sdo[0x6040].raw = ControlWord["CLEAR_BIT"] #clear bit 4
+
+        self.Nodo.sdo[0x6040].raw = ControlWord["ENABLE_POS_RELATIVE"]
+        
+
+    #8
+    def ProfilePositionAbsolute(self, Angle):
+        gradi= self.Resolution/360*Angle        #gradi= self.Resolution*Angle/2/M_PI
+        self.Nodo.sdo[0x607A].raw = int(gradi)    
+        
+        if self.stato==0:
+            try:
+                self.Nodo.sdo[0x607A].raw = gradi 
+            except canopen.sdo.exceptions.SdoCommunicationError:
+                print("SdoCommunicationError")
+            self.stato = 1
+        else:
+            self.Nodo.sdo[0x6040].raw = ControlWord["CLEAR_BIT"] #clear bit 4
+    
+        self.Nodo.sdo[0x6040].raw = ControlWord["ENABLE_POS_ABSOLUTE"]
+
+    #9
+    def Shutdown(self):
+        self.Nodo.sdo[0x6040].bits[0]= ControlWord["SHUT_DOWN"]
+
+    #10
+    def Disable_Voltage(self):
+        self.Nodo.sdo[0x6040].bits[0]= ControlWord["DISABLE_VOLTAGE"]
+
+    #11
+    def Switch_On(self):
+        self.Nodo.sdo[0x6040].bits[0]= ControlWord["SWITCH_ON"]
+
+    #12
+    def Disable_Operation(self):
+        self.Nodo.sdo[0x6040].bits[0]= ControlWord["DISABLE_OPERATION"]
+
+    #13
+    def Enable_Operation(self):
+        self.Nodo.sdo[0x6040].bits[0]= ControlWord["ENABLE_OPERATION"]
+
+    #14
+    def Fault_Reset(self):
+        self.Nodo.sdo[0x6040].bits[0]= ControlWord["FAULT_RESET"]
+
+    #15
+    def Quick_Stop(self):
+        self.Nodo.sdo[0x6040].bits[0]= ControlWord["QUICK_STOP"]
+
+    #16
+    def FeedBack_StatusWord(self):
+        StatusWord=self.Nodo.sdo[0x6041].raw
+        return StatusWord
+
+    #17
+    def Set_target_position(self, Angle):
+        gradi= self.Resolution/360*Angle
+        self.Nodo.sdo[0x607A].raw = gradi
+
+    #18
+    def EncoderValue(self):
+        CurrentPosition=self.Nodo.sdo[0x6062].raw
+        currentPosition= CurrentPosition*360/self.Resolution
+        return currentPosition
+
+    #19
+    def VelocityValue(self):
+        CurrentVelocity=self.Nodo.sdo[0x606C].raw
+        CurrentVelocity= CurrentVelocity*360/self.Resolution
+        return CurrentVelocity
+    
+    
+
+    # def setFunzione(self,Fun, Mod, Vel, Acc, Ang):
+    #     self.funzione = Fun
+    #     self.Speed = Vel
+    #     self.Acceleration = Acc
+    #     self.Angolo = Ang
+    #     self.Mode = Mod
+    
+    def setFunction(self, Fun):
         self.funzione = Fun
-        self.Speed = Vel
-        self.Acceleration = Acc
-        self.Angolo = Ang
-        self.Mode = Mod
-
+    def setSpeed(self, Vel):
+        self.funzione = Vel
+    def setMode(self, Mod):
+        self.funzione = Mod
+    def setAcceleration(self, Acc):
+        self.funzione = Acc
+    def setAngle(self, Rad):
+        self.funzione = Rad
+    
+        
 
     def NMT_SetRequest(self, request):
         self.NMT_request=request
