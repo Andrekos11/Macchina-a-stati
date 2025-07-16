@@ -2,11 +2,11 @@ from LibreriaAuxind import*
 
 
 Resolution = [(12800*100), (12800*120), (12800*120), 12800*100, 12800*100, 12800*100, 12800*100]
-RxBuffer = [0xAA, 0, 0, 0, 0, 0, 0, 0, 0] #Buffer di ricezione 9Byte min
+RxBuffer = [0xAA, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] #Buffer di ricezione 9Byte min
 
 NodeId = 1
 node = {}
-
+TxBuffer = [0, 0, 0, 0]
 def SendCanFrame(Nodo, funzione):
     if(funzione==1):
         node[Nodo].SetVelocityMode()
@@ -50,16 +50,26 @@ def SendCanFrame(Nodo, funzione):
     if(funzione==15):
         node[Nodo].Quick_Stop()
     if(funzione==16):
-        send(node[Nodo].FeedBack_StatusWord())
+        statusWord = float((node[Nodo].FeedBack_StatusWord()))
+        float_bytes = struct.pack('>f', statusWord)
+        TxBuffer[0:4]=list(float_bytes)
+        send(TxBuffer)
     if(funzione==17):
         bytes_float = bytes(RxBuffer[14:18])
         Angolo=struct.unpack('>f', bytes_float)[0]
         node[Nodo].Set_target_position(Angolo)
     if(funzione==18):
-        send(node[Nodo].EncoderValue())      
+        EncoderValue= float((node[Nodo].EncoderValue()) )   
+        float_bytes = struct.pack('>f', EncoderValue)
+        TxBuffer[0:4]=list(float_bytes)
+        print(TxBuffer)
+        send(TxBuffer)
     if(funzione==19):
-        send(node[Nodo].VelocityValue())
-
+        SpeedValue=float(node[Nodo].VelocityValue())
+        float_bytes = struct.pack('>f', SpeedValue)
+        TxBuffer[0:4]=list(float_bytes)
+        print(TxBuffer)
+        send(TxBuffer)
 def Init (ID):
     node[ID-1]=Auxind(ID, NetWork, Resolution[ID-1])
      
