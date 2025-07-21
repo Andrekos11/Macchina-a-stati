@@ -1,7 +1,7 @@
 from LibreriaAuxind import*
 
 
-Resolution = [(12800*100), (12800*120), (12800*120), 12800*100, 12800*100, 12800*100, 12800*100]
+Resolution = [(12800*100), (12800*120), (12800*100), (12800*100), (12800*100), (12800*100), (12800*100)]
 RxBuffer = [0xAA, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] #Buffer di ricezione 9Byte min
 
 NodeId = 1
@@ -26,7 +26,11 @@ def SendCanFrame(Nodo, funzione):
     if(funzione==6):
         bytes_float = bytes(RxBuffer[6:10])
         Speed=struct.unpack('>f', bytes_float)[0]
-        node[Nodo].ProfileVelocity(Speed)
+        bytes_float = bytes(RxBuffer[10:14])
+        Acc=struct.unpack('>f', bytes_float)[0]
+        bytes_float = bytes(RxBuffer[14:18])
+        MaxVel=struct.unpack('>f', bytes_float)[0]        
+        node[Nodo].ProfileVelocity(Speed, Acc, MaxVel)
     if(funzione==7):
         bytes_float = bytes(RxBuffer[14:18])
         Angolo=struct.unpack('>f', bytes_float)[0]
@@ -70,8 +74,9 @@ def SendCanFrame(Nodo, funzione):
         TxBuffer[0:4]=list(float_bytes)
         print(TxBuffer)
         send(TxBuffer)
-def Init (ID):
-    node[ID-1]=Auxind(ID, NetWork, Resolution[ID-1])
+
+def Init (ID, offset):
+    node[ID-1]=Auxind(ID, NetWork, Resolution[ID-1], offset)
      
 
 while True:
@@ -82,34 +87,21 @@ while True:
     else: 
         print("Pacchetto minore di 18 bytes")
 
-    if RxBuffer == [0xAA, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255]:
+    if RxBuffer == [0xAA, 256, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255]:
         NetWork = InitNetwork()
-        #
-        # print(NetWork)
 
-    elif (RxBuffer[0] == 0xAA and RxBuffer[2] == 255 and RxBuffer[3] == 255 and RxBuffer[4] == 255 and RxBuffer[5] == 255 and RxBuffer[6] == 255 and RxBuffer[7] == 255 and RxBuffer[8] == 255):
-        #node[0] = Auxind((1), NetWork, Resolution[0])
-        Init(RxBuffer[1])
-        #node = [Auxind(i, NetWork, Resolution[i]) for i in range(7)] #Array di motori
+    elif (RxBuffer[0] == 0xAA and RxBuffer[2] == 255 and RxBuffer[3] == 255 and RxBuffer[4] == 255 and RxBuffer[5] == 255):
+        bytes_float = bytes(RxBuffer[10:14])
+        offset=struct.unpack('>f', bytes_float)[0]
+        Init(RxBuffer[1], offset)
 
-    #spacchetto il msg 
-    #elif RxBuffer != [0xAA, 255 , 255, 255, 255, 255, 255, 255, 255] and RxBuffer != [171, 255 , 255, 255, 255, 255, 255, 255, 255]: 
     else:
         print("lettura pacchetto di evento")
-        #byte1 assegno numero nodo
         NodeId = RxBuffer[1]
         print("Nodo: ", NodeId)
-        #byte2 NMT
-        #node[NodeId].NMT_SetRequest(RxBuffer[x+2])
-        #byte3, 6, 7 ,8 
-        #node[(NodeId-1)].setFunzione(RxBuffer[3], RxBuffer[5], RxBuffer[6], RxBuffer[7], RxBuffer[8])
-        #byte4 evento
-        #node[NodeId].Event_SetRequest(RxBuffer[x+1])
         node[NodeId-1].setFunction(RxBuffer[3])
         SendCanFrame(NodeId-1, RxBuffer[3])
-        #macchina a stati?
 
-        # if((node[NodeId].NMT_ReadRequest() == node[NodeId].NMT_ReadRequest()) and ):
 
 
 

@@ -91,7 +91,7 @@ def FDBack2():
 
 
 def InitNetwork():    
-        TxBuffer = [0xAA, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255]
+        TxBuffer = [0xAA, 256, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255]
         send(TxBuffer)
         while FDBack() is None:
 
@@ -103,10 +103,11 @@ def InitNetwork():
 
 class Auxind:
 
-    def __init__(self, NodeId, resolution):   
+    def __init__(self, NodeId, resolution, offset):   
         self.Nodo = NodeId
-        self.Resolution = resolution
         TxBuffer = [0xAA, NodeId, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255]
+        float_bytes = struct.pack('>f', offset) #big endian
+        TxBuffer[10:14] = list(float_bytes)
         send(TxBuffer)
         while True:
             if FDBack() !=15:
@@ -126,11 +127,11 @@ class Auxind:
         speed = 0.0
         float_bytes = struct.pack('>f', speed) #big endian
         TxBuffer[6:10] = list(float_bytes)
-        Acc = 0.5
+        Acc = 0.08
         float_bytes = struct.pack('>f', Acc) #big endian
         TxBuffer[10:14] = list(float_bytes)
         Angle = 0.0
-        float_bytes = struct.pack('>f', Angle) #little endian
+        float_bytes = struct.pack('>f', Angle) #big endian
         TxBuffer[14:18] = list(float_bytes)
         send(TxBuffer)
 
@@ -142,10 +143,8 @@ class Auxind:
         TxBuffer[3] = 2
         TxBuffer[4] = ControlWord["ENABLE_OPERATION"]
         TxBuffer[5] = ModesOfOperation["PROFILE_POSITION"]
-        #speed = abs((self.Resolution*Speed)/(2*M_PI))
         float_bytes = struct.pack('>f', Speed) #big endian
         TxBuffer[6:10] = list(float_bytes)
-        #Acc = abs((acceleration * self.Resolution) / (2 * M_PI))
         float_bytes = struct.pack('>f', acceleration) #big endian
         TxBuffer[10:14] = list(float_bytes)      
         send(TxBuffer)
@@ -181,7 +180,7 @@ class Auxind:
         send(TxBuffer)
 
     #6
-    def ProfileVelocity(self, Speed):
+    def ProfileVelocity(self, Speed, Acc, MaxVel):
         TxBuffer[0] = 0xAA
         TxBuffer[1] = self.Nodo
         TxBuffer[2] = NMT["Operetional"]
@@ -190,7 +189,10 @@ class Auxind:
         TxBuffer[5] = ModesOfOperation["PROFILE_VELOCITY"]
         float_bytes = struct.pack('>f', Speed) #big endian
         TxBuffer[6:10] = list(float_bytes)
-      
+        float_bytes = struct.pack('>f', Acc) #big endian
+        TxBuffer[10:14] = list(float_bytes)
+        float_bytes = struct.pack('>f', MaxVel) #big endian
+        TxBuffer[14:18] = list(float_bytes)      
         send(TxBuffer)        
 
     #7
@@ -291,7 +293,6 @@ class Auxind:
         TxBuffer[0] = 0xAA
         TxBuffer[1] = self.Nodo
         TxBuffer[3] = 17
-        #gradi = self.Resolution/360*Angle    #gradi= self.Resolution*Angle/2/M_PI
         float_bytes = struct.pack('>f', Angle) #big endian
         TxBuffer[14:18] = list(float_bytes)       
         send(TxBuffer)

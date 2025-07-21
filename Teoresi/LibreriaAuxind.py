@@ -33,10 +33,11 @@ def InitNetwork():
 
 class Auxind:
 
-    def __init__(self, NodeId, network, resolution):   
+    def __init__(self, NodeId, network, resolution, Offset):   
         self.Nodo = network.add_node(NodeId, 'auxindPic.eds')
         self.stato = 0
         self.Resolution = resolution
+        self.offset = Offset
         #NMT
         self.NMT_saved = 0
         self.NMT_request = 127
@@ -64,6 +65,7 @@ class Auxind:
         self.funzione = 0
         self.PastMode = 0
         self.Mode = 0
+
         if self.Nodo is not None:
             send(15)
         #     return None
@@ -91,9 +93,9 @@ class Auxind:
         acc = abs((acceleration * self.Resolution) / (2 * M_PI))
         self.Nodo.sdo[0x6060].raw = ModesOfOperation["PROFILE_POSITION"] 
         #parametri del motore
-        self.Nodo.sdo[0x6081].raw =Speed
-        self.Nodo.sdo[0x6083].raw = acceleration 
-        self.Nodo.sdo[0x6084].raw = acceleration 
+        self.Nodo.sdo[0x6081].raw =speed
+        self.Nodo.sdo[0x6083].raw = acc
+        self.Nodo.sdo[0x6084].raw = acc 
         # Shutdown
         self.Nodo.sdo[0x6040].raw = ControlWord["SHUT_DOWN"]
         time.sleep(0.2)
@@ -108,6 +110,7 @@ class Auxind:
         self.Nodo.sdo[0x6099][1].raw = 15000  # homing speed research
         self.Nodo.sdo[0x6099][2].raw = 15000  # homing speed release
         self.Nodo.sdo[0x609A].raw = 100  # homing acceleration
+        self.Nodo.sdo[0x607C].raw = self.offset # offset
         # Shutdown
         self.Nodo.sdo[0x6040].raw = ControlWord["SHUT_DOWN"]
         time.sleep(0.2)
@@ -128,6 +131,7 @@ class Auxind:
         self.Nodo.sdo[0x6099][1].raw = 15000  # homing speed research
         self.Nodo.sdo[0x6099][2].raw = 15000  # homing speed release
         self.Nodo.sdo[0x609A].raw = 100  # homing acceleration
+        self.Nodo.sdo[0x607C].raw = self.offset # offset
 
         # Shutdown
         self.Nodo.sdo[0x6040].raw = ControlWord["SHUT_DOWN"]
@@ -148,7 +152,7 @@ class Auxind:
         self.Nodo.sdo[0x6099][1].raw = 15000  # homing speed research
         self.Nodo.sdo[0x6099][2].raw = 15000  # homing speed release
         self.Nodo.sdo[0x609A].raw = 100  # homing acceleration
-        self.Nodo.sdo[0x607C].raw = 0x00
+        self.Nodo.sdo[0x607C].raw = self.offset # offset
 
         # Shutdown
         self.Nodo.sdo[0x6040].raw = ControlWord["SHUT_DOWN"]
@@ -162,14 +166,20 @@ class Auxind:
         self.Nodo.sdo[0x6040].raw = ControlWord["START_HOMING"]  #start homing
         time.sleep(0.2)
     #6
-    def ProfileVelocity(self, Speed):
-        speed = self.Resolution*Speed/2/M_PI
-        self.Nodo.sdo[0x60FF].raw= Speed
+    def ProfileVelocity(self, Speed, Acc, MaxVel):
+        speed = (self.Resolution*Speed)/(2*M_PI)
+        acc = (self.Resolution*Acc)/(2*M_PI)
+        maxvel = (self.Resolution*MaxVel)/(2*M_PI)
+        self.Nodo.sdo[0x60FF].raw= speed
+        self.Nodo.sdo[0x6083].raw = acc
+        self.Nodo.sdo[0x6084].raw = acc
+        self.Nodo.sdo[0x607F].raw = maxvel
         
 
     #7
     def ProfilePositionRelative(self, Angle):
-        gradi= self.Resolution/360*Angle        #gradi= self.Resolution*Angle/2/M_PI
+        #gradi= self.Resolution/360*Angle        #
+        gradi= (self.Resolution*Angle)/(2*M_PI)
         self.Nodo.sdo[0x607A].raw = int(gradi)
         
         if self.stato==0:
@@ -186,7 +196,8 @@ class Auxind:
 
     #8
     def ProfilePositionAbsolute(self, Angle):
-        gradi= self.Resolution/360*Angle        #gradi= self.Resolution*Angle/2/M_PI
+        #gradi= self.Resolution/360*Angle        #gradi= self.Resolution*Angle/2/M_PI
+        gradi= (self.Resolution*Angle)/(2*M_PI)
         self.Nodo.sdo[0x607A].raw = int(gradi)    
         
         if self.stato==0:
@@ -240,14 +251,17 @@ class Auxind:
 
     #18
     def EncoderValue(self):
-        CurrentPosition=self.Nodo.sdo[0x6062].raw
-        currentPosition= CurrentPosition*360/self.Resolution
-        return currentPosition
+        currentPosition=self.Nodo.sdo[0x6062].raw
+        #currentPosition= CurrentPosition*360/self.Resolution
+        CurrentPosition= (currentPosition*2*M_PI)/self.Resolution
+        #gradi= (self.Resolution*Angle)/(2*M_PI)
+        return CurrentPosition
 
     #19
     def VelocityValue(self):
         CurrentVelocity=self.Nodo.sdo[0x606C].raw
-        CurrentVelocity= CurrentVelocity*360/self.Resolution
+        CurrentVelocity=(CurrentVelocity*(2*M_PI))/self.Resolution
+        #CurrentVelocity= CurrentVelocity*360/self.Resolution
         return CurrentVelocity
     
     
