@@ -67,7 +67,10 @@ class Auxind:
         self.Mode = 0
 
         if self.Nodo is not None:
-            send(15)
+            for x in range(5):
+
+                send(15)
+                time.sleep(0.1)
         #     return None
 
 

@@ -91,7 +91,7 @@ def FDBack2():
 
 
 def InitNetwork():    
-        TxBuffer = [0xAA, 256, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255]
+        TxBuffer = [0xAA, 254, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255]
         send(TxBuffer)
         while FDBack() is None:
 
@@ -191,6 +191,7 @@ class Auxind:
         TxBuffer[6:10] = list(float_bytes)
         float_bytes = struct.pack('>f', Acc) #big endian
         TxBuffer[10:14] = list(float_bytes)
+        MaxVel= 2
         float_bytes = struct.pack('>f', MaxVel) #big endian
         TxBuffer[14:18] = list(float_bytes)      
         send(TxBuffer)        

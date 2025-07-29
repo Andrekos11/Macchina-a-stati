@@ -1,3 +1,4 @@
+
 from LibreriaAuxind import*
 
 
@@ -80,6 +81,7 @@ def Init (ID, offset):
      
 
 while True:
+    start=time.monotonic()
     data, addr = sock_recv.recvfrom(1024)
     if len(data) == 18:
         RxBuffer = list(data)
@@ -87,7 +89,7 @@ while True:
     else: 
         print("Pacchetto minore di 18 bytes")
 
-    if RxBuffer == [0xAA, 256, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255]:
+    if RxBuffer == [0xAA, 254, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255]:
         NetWork = InitNetwork()
 
     elif (RxBuffer[0] == 0xAA and RxBuffer[2] == 255 and RxBuffer[3] == 255 and RxBuffer[4] == 255 and RxBuffer[5] == 255):
@@ -101,7 +103,9 @@ while True:
         print("Nodo: ", NodeId)
         node[NodeId-1].setFunction(RxBuffer[3])
         SendCanFrame(NodeId-1, RxBuffer[3])
-
+    end = time.monotonic()
+    elapsed = (end-start)*1000
+    print(f"Tempo impiegato:: {elapsed} millisecondi")
 
 
 
