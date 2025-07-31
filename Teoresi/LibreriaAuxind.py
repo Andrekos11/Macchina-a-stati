@@ -1,4 +1,5 @@
 import canopen
+import can
 from ComunicationLib import*
 import time
 import math
@@ -26,18 +27,30 @@ ModesOfOperation = {
     }
 
 def InitNetwork():    
-        network = canopen.Network()
-        network.connect(channel='can0', interface='socketcan', bitrate=1000000) 
-        send(network)
-        return network
+    network = canopen.Network() 
+    network.connect(channel='can0', interface='socketcan', bitrate=1000000) 
+    send(network)
+    return network
+
+def InitBus():
+    bus = can.interface.Bus(channel='can0', bustype='socketcan')    
+    return bus
+
 
 class Auxind:
 
-    def __init__(self, NodeId, network, resolution, Offset):   
+    def __init__(self, NodeId, network, resolution, Offset, bus):   
+        #self.Nodo.nmt.state = 'PRE-OPERATIONAL'
+        self.Bus = bus
         self.Nodo = network.add_node(NodeId, 'auxindPic.eds')
         self.stato = 0
         self.Resolution = resolution
         self.offset = Offset
+        self.COB_ID_encoder = 0x480 + NodeId
+        self.COB_ID_velocity = 0x380 + NodeId
+        self.COB_ID_status = 0x180 + NodeId
+
+
         #NMT
         self.NMT_saved = 0
         self.NMT_request = 127
@@ -64,11 +77,11 @@ class Auxind:
         self.Angolo = 0
         self.funzione = 0
         self.PastMode = 0
-        self.Mode = 0
-
+        self.Mode = 0      
+        self.Nodo.nmt.state = 'OPERATIONAL'
+        time.sleep(0.5)
         if self.Nodo is not None:
             for x in range(5):
-
                 send(15)
                 time.sleep(0.1)
         #     return None
@@ -244,6 +257,11 @@ class Auxind:
 
     #16
     def FeedBack_StatusWord(self):
+        # message = self.Bus.recv()
+        # if message.arbitration_id == self.COB_ID_status:
+        #     return struct.unpack('<h', message.data[0:2])[0]
+        # else:
+        #     return 0
         StatusWord=self.Nodo.sdo[0x6041].raw
         return StatusWord
 
@@ -254,18 +272,25 @@ class Auxind:
 
     #18
     def EncoderValue(self):
-        currentPosition=self.Nodo.sdo[0x6062].raw
-        #currentPosition= CurrentPosition*360/self.Resolution
-        CurrentPosition= (currentPosition*2*M_PI)/self.Resolution
-        #gradi= (self.Resolution*Angle)/(2*M_PI)
-        return CurrentPosition
+        message = self.Bus.recv()
+        if message.arbitration_id == self.COB_ID_encoder:
+            return ((struct.unpack('<i', message.data[0:4])[0])*(2*M_PI))/self.Resolution
 
+        else:
+            # richiama la funzione finché non legge il valore
+            return self.EncoderValue()
     #19
     def VelocityValue(self):
+        # message = self.Bus.recv()
+        # if message.arbitration_id == self.COB_ID_velocity:
+        #     return ((struct.unpack('<i', message.data[0:4])[0])*(2*M_PI))/self.Resolution
+        # else:
+        #     return 0
         CurrentVelocity=self.Nodo.sdo[0x606C].raw
         CurrentVelocity=(CurrentVelocity*(2*M_PI))/self.Resolution
         #CurrentVelocity= CurrentVelocity*360/self.Resolution
         return CurrentVelocity
+
     
     
 
