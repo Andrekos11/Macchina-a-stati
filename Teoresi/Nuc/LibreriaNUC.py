@@ -51,7 +51,7 @@ NMT = {
 
 
 # IP e porte
-TEO_ip = "192.168.137.130"  # IP del Teoresi
+TEO_ip = "192.168.1.137"  # IP del Teoresi
 port_send = 5005              # Porta su cui Python invia 
 port_recv = 5006              # Porta su cui Python riceve
 
@@ -91,19 +91,22 @@ def FDBack2():
 
 
 def InitNetwork():    
-        TxBuffer = [0xAA, 254, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255]
-        send(TxBuffer)
-        while FDBack() is None:
-
-            return FDBack()
-
-
+    TxBuffer = [0xAA, 254, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255]
+    start = time.time()
+    send(TxBuffer)
+    # Net = FDBack()
+    # while  Net is None or (time.time()-start)<10 :
+    #     Net = FDBack()
+    #     print("Errore di configurazione network")
+    # return Net
+    while FDBack() is None:
+        return FDBack()
 
 
 
 class Auxind:
 
-    def __init__(self, NodeId, resolution, offset):   
+    def __init__(self, NodeId, network, resolution, offset):   
         self.Nodo = NodeId
         TxBuffer = [0xAA, NodeId, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255]
         float_bytes = struct.pack('>f', offset) #big endian
@@ -191,7 +194,6 @@ class Auxind:
         TxBuffer[6:10] = list(float_bytes)
         float_bytes = struct.pack('>f', Acc) #big endian
         TxBuffer[10:14] = list(float_bytes)
-        MaxVel= 2
         float_bytes = struct.pack('>f', MaxVel) #big endian
         TxBuffer[14:18] = list(float_bytes)      
         send(TxBuffer)        
@@ -208,8 +210,7 @@ class Auxind:
         TxBuffer[14:18] = list(float_bytes)       
         send(TxBuffer)
        
- 
-        
+
 
     #8
     def ProfilePositionAbsolute(self, Angle):
