@@ -3,6 +3,7 @@ import can
 from ComunicationLib import*
 import time
 import math
+import threading
 M_PI = math.pi
 
 
@@ -26,30 +27,47 @@ ModesOfOperation = {
         "HOMING": 0x06,
     }
 
-def InitNetwork():    
-    network = canopen.Network() 
-    network.connect(channel='can0', interface='socketcan', bitrate=1000000) 
-    send(network)
-    return network
+class Network:
+    def __init__(self):
+        self.network = canopen.Network() 
+        self.network.connect(channel='can0', interface='socketcan', bitrate=1000000)
+        send(self.network)
+        print("inizializzo")
+        self.Bus = can.interface.Bus(channel='can0', bustype='socketcan')
+        #return self.network     
 
-def InitBus():
-    bus = can.interface.Bus(channel='can0', bustype='socketcan')    
-    return bus
+    def GetNetwork(self):
+        return self.network
 
+    def EncoderValue_Request(self, Nodo):
+        self.Bus.send(can.Message(arbitration_id=0x80, data=[], is_extended_id=False))
+        self.EncoderValue_Response(Nodo)
+
+    def EncoderValue_Response(self, Nodo):
+        max_wait = 0.010
+        start_time = time.time()
+        while time.time() - start_time < max_wait:
+            i=0
+            for i in range(8):
+                message = self.Bus.recv(timeout=0.01)
+                if message is not None:
+                    Id = message.arbitration_id - 0x280
+                    Nodo[Id].setEncoderValue(((struct.unpack('<i', message.data[0:4])[0]) * (2 * M_PI)) / 1000000)
+        return 0.0
 
 class Auxind:
 
-    def __init__(self, NodeId, network, resolution, Offset, bus):   
+    def __init__(self, NodeId, network, resolution, Offset):   
         #self.Nodo.nmt.state = 'PRE-OPERATIONAL'
-        self.Bus = bus
+        #self.Bus = bus
         self.Nodo = network.add_node(NodeId, 'auxindPic.eds')
         self.stato = 0
         self.Resolution = resolution
         self.offset = Offset
-        self.COB_ID_encoder = 0x480 + NodeId
+        self.Encoder = 0
+        self.COB_ID_encoder = 0x280 + NodeId
         self.COB_ID_velocity = 0x380 + NodeId
         self.COB_ID_status = 0x180 + NodeId
-
 
         #NMT
         self.NMT_saved = 0
@@ -80,6 +98,7 @@ class Auxind:
         self.Mode = 0      
         self.Nodo.nmt.state = 'OPERATIONAL'
         time.sleep(0.5)
+        self.Nodo.nmt.state = 'OPERATIONAL'
         if self.Nodo is not None:
             for x in range(5):
                 send(15)
@@ -190,17 +209,20 @@ class Auxind:
         self.Nodo.sdo[0x6083].raw = acc
         self.Nodo.sdo[0x6084].raw = acc
         self.Nodo.sdo[0x607F].raw = maxvel
-        
+
+    def ProfileVelocityRPDO(self, Speed):
+        self.Nodo.rpdo[2]['Control word'].phys = ControlWord["ENABLE_OPERATION"]
+        self.Nodo.rpdo[2]['Target velocity'].phys = (self.Resolution*Speed)/(2*M_PI)
+        self.Nodo.rpdo[2].transmit()
 
     #7
     def ProfilePositionRelative(self, Angle):
-        #gradi= self.Resolution/360*Angle        #
-        gradi= (self.Resolution*Angle)/(2*M_PI)
-        self.Nodo.sdo[0x607A].raw = int(gradi)
+
+        self.Nodo.sdo[0x607A].raw = int((self.Resolution*Angle)/(2*M_PI))
         
         if self.stato==0:
             try:
-                self.Nodo.sdo[0x607A].raw = int(gradi)
+                self.Nodo.sdo[0x607A].raw = int((self.Resolution*Angle)/(2*M_PI))
             except canopen.sdo.exceptions.SdoCommunicationError:
                 print("SdoCommunicationError")
             self.stato = 1
@@ -208,17 +230,14 @@ class Auxind:
             self.Nodo.sdo[0x6040].raw = ControlWord["CLEAR_BIT"] #clear bit 4
 
         self.Nodo.sdo[0x6040].raw = ControlWord["ENABLE_POS_RELATIVE"]
-        
 
     #8
-    def ProfilePositionAbsolute(self, Angle):
-        #gradi= self.Resolution/360*Angle        #gradi= self.Resolution*Angle/2/M_PI
-        gradi= (self.Resolution*Angle)/(2*M_PI)
-        self.Nodo.sdo[0x607A].raw = int(gradi)    
+    def ProfilePositionAbsolute(self, Angle):      
+        self.Nodo.sdo[0x607A].raw = int((self.Resolution*Angle)/(2*M_PI))    
         
         if self.stato==0:
             try:
-                self.Nodo.sdo[0x607A].raw = gradi 
+                self.Nodo.sdo[0x607A].raw = (self.Resolution*Angle)/(2*M_PI) 
             except canopen.sdo.exceptions.SdoCommunicationError:
                 print("SdoCommunicationError")
             self.stato = 1
@@ -270,15 +289,24 @@ class Auxind:
         gradi= self.Resolution/360*Angle
         self.Nodo.sdo[0x607A].raw = gradi
 
+    
     #18
-    def EncoderValue(self):
-        message = self.Bus.recv()
-        if message.arbitration_id == self.COB_ID_encoder:
-            return ((struct.unpack('<i', message.data[0:4])[0])*(2*M_PI))/self.Resolution
+    # def EncoderValue_Request(self):
+    #     self.Bus.send(can.Message(arbitration_id=0x80, data=[], is_extended_id=False))
 
-        else:
-            # richiama la funzione finché non legge il valore
-            return self.EncoderValue()
+    def setEncoderValue(self, value):
+        self.Encoder = value
+
+    def EncoderValue(self):
+        return self.Encoder
+    #     max_wait=0.001
+    #     start_time = time.time()
+    #     while time.time() - start_time < max_wait:
+    #         message = self.Bus.recv(timeout=0.001)
+    #         if message is not None and message.arbitration_id == self.COB_ID_encoder:
+    #             self.Encoder = ((struct.unpack('<i', message.data[0:4])[0])*(2*M_PI))/self.Resolution
+    #     return 0.0
+        
     #19
     def VelocityValue(self):
         # message = self.Bus.recv()

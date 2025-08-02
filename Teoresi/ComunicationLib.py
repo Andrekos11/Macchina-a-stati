@@ -16,6 +16,7 @@ sock_recv = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 sock_recv.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
 sock_recv.bind(("0.0.0.0", port_recv))
 
+
 def send(Buffer):
     msg = bytes(Buffer)
     sock_send.sendto(msg, (NUC_ip, port_send))

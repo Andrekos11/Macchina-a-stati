@@ -32,6 +32,7 @@ def SendCanFrame(Nodo, funzione):
         bytes_float = bytes(RxBuffer[14:18])
         MaxVel=struct.unpack('>f', bytes_float)[0]        
         node[Nodo].ProfileVelocity(Speed, Acc, MaxVel)
+        #node[Nodo].profileVelocityRPDO(Speed)
     if(funzione==7):
         bytes_float = bytes(RxBuffer[14:18])
         Angolo=struct.unpack('>f', bytes_float)[0]
@@ -70,7 +71,7 @@ def SendCanFrame(Nodo, funzione):
         val = node[Nodo].EncoderValue()
         TxBuffer[0:4] = list(struct.pack('>f', val))
         print(f"Valore dell'encoder: {val}")
-        send(TxBuffer)
+        send(TxBuffer)     
     if(funzione==19):
         # val = node[Nodo].VelocityValue()
         # TxBuffer[0:4] = list(struct.pack('>f', val if val is not None else 0.0))
@@ -78,22 +79,31 @@ def SendCanFrame(Nodo, funzione):
         SpeedValue=float(node[Nodo].VelocityValue())
         float_bytes = struct.pack('>f', SpeedValue)
         TxBuffer[0:4]=list(float_bytes)
-        print(TxBuffer)
         send(TxBuffer)
 
 def Init (ID, offset):
-    node[ID-1]=Auxind(ID, NetWork, Resolution[ID-1], offset, Bus)
-     
+    node[ID-1]=Auxind(ID, netWork, Resolution[ID-1], offset)
+
+def spinner():
+    while True:
+        netWork.EncoderValue_Request(node)
+        time.sleep(0.001)
+
+def thread():
+    thread = threading.Thread(target=spinner)
+    thread.daemon = True  # il thread si chiude quando il programma principale termina
+    thread.start()
 
 while True:
 
     data, addr = sock_recv.recvfrom(30)
     RxBuffer = list(data)
+    print(f"Ricevuto da {addr}: {RxBuffer}")
 
 
     if RxBuffer[1] == 254:
-        NetWork = InitNetwork()
-        Bus = InitBus()
+        NetWork = Network()
+        netWork = NetWork.GetNetwork()
 
     elif (RxBuffer[2] == 255):
         bytes_float = bytes(RxBuffer[10:14])
